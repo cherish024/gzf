@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{31D2922E-7606-4725-95AF-75C978DA9558}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gzf</RootNamespace>
+    <AssemblyName>gzf</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>66.ico</ApplicationIcon>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="dotnetCharting.WinForms, Version=5.2.3313.20168, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\dotnetCharting.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="Microsoft.Vsa" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="about.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="about.Designer.cs">
+      <DependentUpon>about.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addBuildingForm.Designer.cs">
+      <DependentUpon>addBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addGuestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addGuestForm.Designer.cs">
+      <DependentUpon>addGuestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addHouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addHouseForm.Designer.cs">
+      <DependentUpon>addHouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addUserForm.Designer.cs">
+      <DependentUpon>addUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Card2.cs" />
+    <Compile Include="changeHouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="changeHouseForm.Designer.cs">
+      <DependentUpon>changeHouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="editCompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editCompanyForm.Designer.cs">
+      <DependentUpon>editCompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jiezhang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>jiezhang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="guestInfoListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="guestInfoListForm.Designer.cs">
+      <DependentUpon>guestInfoListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jiezhangPrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jiezhangPrintForm.Designer.cs">
+      <DependentUpon>jiezhangPrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jiezhangtuikuanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jiezhangtuikuanForm.Designer.cs">
+      <DependentUpon>jiezhangtuikuanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\OpenHouseKind.cs" />
+    <Compile Include="model\powerType.cs" />
+    <Compile Include="openInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="openInfoForm.Designer.cs">
+      <DependentUpon>openInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paymentForm.Designer.cs">
+      <DependentUpon>paymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="changeStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="changeStatusForm.Designer.cs">
+      <DependentUpon>changeStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="common.cs" />
+    <Compile Include="configForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="configForm.Designer.cs">
+      <DependentUpon>configForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB.cs" />
+    <Compile Include="editBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editBuildingForm.Designer.cs">
+      <DependentUpon>editBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editHouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editHouseForm.Designer.cs">
+      <DependentUpon>editHouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editPayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editPayForm.Designer.cs">
+      <DependentUpon>editPayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editPowerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editPowerForm.Designer.cs">
+      <DependentUpon>editPowerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editUserForm.Designer.cs">
+      <DependentUpon>editUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="guestinfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="guestinfoForm.Designer.cs">
+      <DependentUpon>guestinfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="houseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="houseControl.Designer.cs">
+      <DependentUpon>houseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jiezhangForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jiezhangForm.Designer.cs">
+      <DependentUpon>jiezhangForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\Building.cs" />
+    <Compile Include="model\Guest.cs" />
+    <Compile Include="model\House.cs" />
+    <Compile Include="model\HouseStatus.cs" />
+    <Compile Include="model\OpenHouse.cs" />
+    <Compile Include="model\User.cs" />
+    <Compile Include="openPersonFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="openPersonFrom.Designer.cs">
+      <DependentUpon>openPersonFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="openTeamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="openTeamForm.Designer.cs">
+      <DependentUpon>openTeamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="powerInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="powerInfoForm.Designer.cs">
+      <DependentUpon>powerInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sendSmsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sendSmsForm.Designer.cs">
+      <DependentUpon>sendSmsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmsService.cs" />
+    <Compile Include="startForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="startForm.Designer.cs">
+      <DependentUpon>startForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addBuildingForm.resx">
+      <DependentUpon>addBuildingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addGuestForm.resx">
+      <DependentUpon>addGuestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addHouseForm.resx">
+      <DependentUpon>addHouseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addUserForm.resx">
+      <DependentUpon>addUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="changeHouseForm.resx">
+      <DependentUpon>changeHouseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="jiezhang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>jiezhang.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="editCompanyForm.resx">
+      <DependentUpon>editCompanyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="guestInfoListForm.resx">
+      <DependentUpon>guestInfoListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jiezhangPrintForm.resx">
+      <DependentUpon>jiezhangPrintForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jiezhangtuikuanForm.resx">
+      <DependentUpon>jiezhangtuikuanForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="openInfoForm.resx">
+      <DependentUpon>openInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paymentForm.resx">
+      <DependentUpon>paymentForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="changeStatusForm.resx">
+      <DependentUpon>changeStatusForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="configForm.resx">
+      <DependentUpon>configForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editBuildingForm.resx">
+      <DependentUpon>editBuildingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editHouseForm.resx">
+      <DependentUpon>editHouseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editPayForm.resx">
+      <DependentUpon>editPayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editPowerForm.resx">
+      <DependentUpon>editPowerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editUserForm.resx">
+      <DependentUpon>editUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="guestinfoForm.resx">
+      <DependentUpon>guestinfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="houseControl.resx">
+      <DependentUpon>houseControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jiezhangForm.resx">
+      <DependentUpon>jiezhangForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="openPersonFrom.resx">
+      <DependentUpon>openPersonFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="openTeamForm.resx">
+      <DependentUpon>openTeamForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="powerInfoForm.resx">
+      <DependentUpon>powerInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sendSmsForm.resx">
+      <DependentUpon>sendSmsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="startForm.resx">
+      <DependentUpon>startForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiFapiaoForm.resx">
+      <DependentUpon>tongjiFapiaoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiForm.resx">
+      <DependentUpon>tongjiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiGuestForm.resx">
+      <DependentUpon>tongjiGuestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiHouseStatusForm.resx">
+      <DependentUpon>tongjiHouseStatusForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiOpen.resx">
+      <DependentUpon>tongjiOpen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiPayForm.resx">
+      <DependentUpon>tongjiPayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiPercentForm.resx">
+      <DependentUpon>tongjiPercentForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiPowerForm.resx">
+      <DependentUpon>tongjiPowerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiYajingForm.resx">
+      <DependentUpon>tongjiYajingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiZdForm.resx">
+      <DependentUpon>tongjiZdForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="warningForm.resx">
+      <DependentUpon>warningForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="xieyi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>xieyi.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="xieyiPrintForm.resx">
+      <DependentUpon>xieyiPrintForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xufeiForm.resx">
+      <DependentUpon>xufeiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YingyeDayForm.resx">
+      <DependentUpon>YingyeDayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YingyeMonth.resx">
+      <DependentUpon>YingyeMonth.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YingyeMonth.sr-Cyrl-CS.resx">
+      <DependentUpon>YingyeMonth.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YingyeYearForm.resx">
+      <DependentUpon>YingyeYearForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Content Include="license.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="tuifangsmall_templete.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="tuikuan_templete.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xieyi_templete.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="tongjiFapiaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiFapiaoForm.Designer.cs">
+      <DependentUpon>tongjiFapiaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiForm.Designer.cs">
+      <DependentUpon>tongjiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiGuestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiGuestForm.Designer.cs">
+      <DependentUpon>tongjiGuestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiHouseStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiHouseStatusForm.Designer.cs">
+      <DependentUpon>tongjiHouseStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiOpen.Designer.cs">
+      <DependentUpon>tongjiOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiPayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiPayForm.Designer.cs">
+      <DependentUpon>tongjiPayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiPercentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiPercentForm.Designer.cs">
+      <DependentUpon>tongjiPercentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiPowerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiPowerForm.Designer.cs">
+      <DependentUpon>tongjiPowerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiYajingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiYajingForm.Designer.cs">
+      <DependentUpon>tongjiYajingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiZdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiZdForm.Designer.cs">
+      <DependentUpon>tongjiZdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToServiceXML.cs" />
+    <Compile Include="warningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="warningForm.Designer.cs">
+      <DependentUpon>warningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xieyi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xieyi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="xieyiPrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xieyiPrintForm.Designer.cs">
+      <DependentUpon>xieyiPrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xufeiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xufeiForm.Designer.cs">
+      <DependentUpon>xufeiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YingyeDayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YingyeDayForm.Designer.cs">
+      <DependentUpon>YingyeDayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YingyeMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YingyeMonth.Designer.cs">
+      <DependentUpon>YingyeMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YingyeYearForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YingyeYearForm.Designer.cs">
+      <DependentUpon>YingyeYearForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="66.ico" />
+    <Content Include="cardapi3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sdtapi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WltRS.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="接待大厅.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

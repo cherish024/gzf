@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="gzf_openhouse" msprop:Generator_UserTableName="gzf_openhouse" msprop:Generator_RowDeletedName="gzf_openhouseRowDeleted" msprop:Generator_RowChangedName="gzf_openhouseRowChanged" msprop:Generator_RowClassName="gzf_openhouseRow" msprop:Generator_RowChangingName="gzf_openhouseRowChanging" msprop:Generator_RowEvArgName="gzf_openhouseRowChangeEvent" msprop:Generator_RowEvHandlerName="gzf_openhouseRowChangeEventHandler" msprop:Generator_TableClassName="gzf_openhouseDataTable" msprop:Generator_TableVarName="tablegzf_openhouse" msprop:Generator_RowDeletingName="gzf_openhouseRowDeleting" msprop:Generator_TablePropName="gzf_openhouse">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="sn" msprop:Generator_UserColumnName="sn" msprop:Generator_ColumnVarNameInTable="columnsn" msprop:Generator_ColumnPropNameInRow="sn" msprop:Generator_ColumnPropNameInTable="snColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="deposit" msprop:Generator_UserColumnName="deposit" msprop:Generator_ColumnVarNameInTable="columndeposit" msprop:Generator_ColumnPropNameInRow="deposit" msprop:Generator_ColumnPropNameInTable="depositColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="start_time" msprop:Generator_UserColumnName="start_time" msprop:Generator_ColumnVarNameInTable="columnstart_time" msprop:Generator_ColumnPropNameInRow="start_time" msprop:Generator_ColumnPropNameInTable="start_timeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="buildingname" msprop:Generator_UserColumnName="buildingname" msprop:Generator_ColumnPropNameInRow="buildingname" msprop:Generator_ColumnVarNameInTable="columnbuildingname" msprop:Generator_ColumnPropNameInTable="buildingnameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
