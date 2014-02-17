@@ -288,8 +288,8 @@ namespace gzf
         {
             Font font = new Font("宋体", 30f);
             Graphics g = e.Graphics;
-            //g.DrawString("大厅", font, Brushes.Black, new PointF(25, 25));
-            g.DrawImage(new Bitmap("接待大厅.JPG"), new PointF(0, 0));
+            g.DrawString("大厅", font, Brushes.Black, new PointF(25, 35));
+            //g.DrawImage(new Bitmap("接待大厅.JPG"), new PointF(0, 0));
         }
 
         private void tabPages_Click(object sender, EventArgs e)

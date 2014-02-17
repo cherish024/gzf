@@ -452,10 +452,6 @@
       <DependentUpon>xieyiPrintForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="xufeiForm.resx">
-      <DependentUpon>xufeiForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="YingyeDayForm.resx">
       <DependentUpon>YingyeDayForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -587,12 +583,6 @@
     </Compile>
     <Compile Include="xieyiPrintForm.Designer.cs">
       <DependentUpon>xieyiPrintForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="xufeiForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="xufeiForm.Designer.cs">
-      <DependentUpon>xufeiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="YingyeDayForm.cs">
       <SubType>Form</SubType>

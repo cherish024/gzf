@@ -120,13 +120,16 @@ namespace gzf
             }
             string name = " ";
             DataTable dtName = DB.select("select name from gzf_guest where openhouse_id=" + openhouse.Id);
-            if (dtName.Rows.Count == 1)
+            if (dtName.Rows.Count > 0)
             {
-                name = dtName.Rows[0]["name"].ToString();
-            }
-            else
-            {
-                name = dtName.Rows[0]["name"] + "、" + dtName.Rows[1]["name"];
+                if (dtName.Rows.Count == 1)
+                {
+                    name = dtName.Rows[0]["name"].ToString();
+                }
+                else
+                {
+                    name = dtName.Rows[0]["name"] + "、" + dtName.Rows[1]["name"];
+                }
             }
             lblname.Text = name;
             //加载团体开单信息
@@ -228,12 +231,6 @@ namespace gzf
             if (count > 0)
             {
                 jiezhangForm_Load(sender, e);
-                dataPayment.MultiSelect = false;
-                dataPayment.Rows[dataPayment.RowCount - 1].Selected = true;
-                dataPayment.CurrentCell = dataPayment.Rows[this.dataPayment.Rows.Count - 1].Cells[1];
-
-                //MessageBox.Show(this.dataPayment.Rows.Count.ToString());
-                //this.dataPayment.CurrentCell = this.dataPayment.Rows[this.dataPayment.Rows.Count - 1].Cells[0]; 
                 return;
             }
             MessageBox.Show("添加失败！");
@@ -287,9 +284,6 @@ namespace gzf
             {
                 DB.exec_NonQuery("delete from gzf_payment where id=" + dataPayment.SelectedRows[0].Cells[0].Value);
                 jiezhangForm_Load(sender, e);
-                dataPayment.MultiSelect = false;
-                dataPayment.Rows[dataPayment.RowCount - 1].Selected = true;
-                dataPayment.CurrentCell = dataPayment.Rows[this.dataPayment.Rows.Count - 1].Cells[1];
             }
         }
 

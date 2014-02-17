@@ -48,6 +48,7 @@
             this.其他部分 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +116,7 @@
             this.其他部分,
             this.Column9,
             this.Column10,
+            this.Column11,
             this.Column1});
             this.dataGridView1.Location = new System.Drawing.Point(21, 79);
             this.dataGridView1.Name = "dataGridView1";
@@ -230,6 +232,13 @@
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "fapiao";
+            this.Column11.HeaderText = "发票号码";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "user_id";
@@ -242,7 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 535);
+            this.ClientSize = new System.Drawing.Size(1103, 541);
             this.Controls.Add(this.comboBoxBuilding);
             this.Controls.Add(this.btn_excel);
             this.Controls.Add(this.dateTimePicker2);
@@ -285,6 +294,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 其他部分;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

@@ -63,6 +63,11 @@ namespace gzf
 
         private void btn_Open_Click(object sender, EventArgs e)
         {
+            if (spinEditDeposit.Value == 0)
+            {
+                MessageBox.Show("请填写押金！");
+                return;
+            }
             if (txtDipositSN.Text == "")
             {
                 MessageBox.Show("请填写押金单号！");
@@ -126,6 +131,12 @@ namespace gzf
             if (spinEditCash.Value + spinEditCride.Value + spinEditOther.Value != money)
             {
                 MessageBox.Show("请检查现金、信用卡、其他是否与总金额一致");
+                return;
+            }
+            string count = DB.selectScalar("select count(*) from gzf_payment where fapiao='" + txtFapiao.Text + "'");
+            if (count != "0")
+            {
+                MessageBox.Show("发票号码已存在，请检查！");
                 return;
             }
             Byte[] bytes = new Byte[0];
@@ -386,6 +397,22 @@ namespace gzf
 
         private void btn_xieyi_Click(object sender, EventArgs e)
         {
+            if (spinEditDeposit.Value == 0)
+            {
+                MessageBox.Show("请填写押金！");
+                return;
+            }
+            if (txtFapiao.Text == "")
+            {
+                MessageBox.Show("请填写发票号！");
+                return;
+            }
+            string count = DB.selectScalar("select count(*) from gzf_payment where fapiao='" + txtFapiao.Text + "'");
+            if (count != "0")
+            {
+                MessageBox.Show("发票号码已存在，请检查！");
+                return;
+            }
             crystalReportViewer1_Click(sender, e);
             crystalReportViewer1.PrintReport();
         }

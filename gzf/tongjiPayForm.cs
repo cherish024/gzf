@@ -61,7 +61,7 @@ namespace gzf
             {
                 e.Value = Convert.ToDateTime(e.Value).ToString("yyyy-MM-dd");
             }
-            if (e.ColumnIndex == 11)
+            if (e.ColumnIndex == 12)
             {
                 e.Value = DB.selectScalar("select username from gzf_user where id=" + e.Value);
             }

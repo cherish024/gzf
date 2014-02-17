@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace gzf
 {
@@ -24,6 +25,9 @@ namespace gzf
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            XmlDocument configXml = new XmlDocument();
+            configXml.Load("config.xml");
+            string count = configXml["config"]["Tongji"].InnerText;
             dataGridView1.Rows.Clear();
             int days = ((dateTimePicker2.Value) - (dateTimePicker1.Value)).Days + 2;
             string houseCount = DB.selectScalar("select count(*) from gzf_house");
@@ -34,7 +38,7 @@ namespace gzf
                 dr.CreateCells(dataGridView1);
                 dr.Cells[0].Value = dateTimePicker1.Value.AddDays(i).ToString("yyyy-MM-dd");
                 dr.Cells[1].Value = DB.selectScalar("select count(*) from gzf_openhouse where convert(varchar(10),addtime,120)='" + dr.Cells[0].Value + "'");
-                dr.Cells[2].Value = Convert.ToInt32(houseCount) - 0;
+                dr.Cells[2].Value = Convert.ToInt32(houseCount) - Convert.ToInt32(count);
                 dr.Cells[3].Value = DB.selectScalar("select count(*) from gzf_house,gzf_openhouse where gzf_openhouse.house_id=gzf_house.id and '" + dr.Cells[0].Value + "' between gzf_openhouse.addtime and end_time and (select count(*) from gzf_zd where gzf_zd.openhouse_id=gzf_openhouse.id and '" + dr.Cells[0].Value + "'<gzf_zd.addtime)=0");
                 dr.Cells[4].Value = (Convert.ToDouble(dr.Cells[3].Value) / Convert.ToDouble(dr.Cells[2].Value)).ToString("P");
                 num += (Convert.ToDouble(dr.Cells[3].Value) / Convert.ToDouble(dr.Cells[2].Value));

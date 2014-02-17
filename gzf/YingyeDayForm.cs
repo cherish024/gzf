@@ -134,10 +134,10 @@ namespace gzf
             foreach (DictionaryEntry de in powertype.statusTable)
             {
                 string cash = "0", credit = "0", other = "0";
-                DataTable money = DB.select("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and kind=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1");
-                cash = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and kind=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1 and gzf_power.pay_method=1");
-                credit = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and kind=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1 and gzf_power.pay_method=2");
-                other = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and kind=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1 and gzf_power.pay_method=3");
+                DataTable money = DB.select("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1");
+                cash = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1 and gzf_power.pay_method=1");
+                credit = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1 and gzf_power.pay_method=2");
+                other = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and convert(varchar(10),gzf_power.addtime,120)='" + date + "' and status=1 and gzf_power.pay_method=3");
                 DataGridViewRow dr = new DataGridViewRow();
                 dr.CreateCells(dataGridView1);
                 dr.Cells[0].Value = de.Value;

@@ -14,7 +14,7 @@ namespace gzf
         public paymentForm()
         {
             InitializeComponent();
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 180; i++)
             {
                 comboBoxDay.Items.Add(i);
             }
@@ -39,7 +39,7 @@ namespace gzf
             {
                 buildingQuery = " and gzf_house.building_id=" + ((DictionaryEntry)comboBoxBuilding.SelectedItem).Key;
             }
-            string cmd = "select house_id,openhouse_id from gzf_payment,gzf_house where openhouse_id in (select id from gzf_openhouse where is_jiezhang=0) AND DateDiff (Day,getdate(),end_time) <= " + (comboBoxDay.SelectedIndex + 1) + " and gzf_payment.id in (select max(id) from gzf_payment group by house_id) and gzf_payment.house_id=gzf_house.id" + buildingQuery + " order by gzf_house.building_id,gzf_house.sn";
+            string cmd = "select house_id,openhouse_id from gzf_payment,gzf_house where openhouse_id in (select max(id) from gzf_openhouse where is_jiezhang=0 group by house_id) AND DateDiff (Day,getdate(),end_time) <= " + (comboBoxDay.SelectedIndex + 1) + " and gzf_payment.id in (select max(id) from gzf_payment group by house_id) and gzf_payment.house_id=gzf_house.id" + buildingQuery + " order by gzf_house.building_id,gzf_house.sn";
             dataGridView1.DataSource = DB.select(cmd);
             
         }
@@ -61,7 +61,15 @@ namespace gzf
             }
             if (e.ColumnIndex == 2)
             {
-                e.Value = DB.selectScalar("select name from gzf_guest where openhouse_id=" + e.Value);
+                DataTable dt = DB.select("select * from gzf_openhouse where id=" + e.Value);
+                if (dt.Rows[0]["is_team"].ToString() != "0")
+                {
+                    e.Value = DB.selectScalar("select name from gzf_guest where openhouse_id=" + dt.Rows[0]["is_team"].ToString());
+                }
+                else
+                {
+                    e.Value = DB.selectScalar("select name from gzf_guest where openhouse_id=" + e.Value);
+                }
             }
             if (e.ColumnIndex == 3)
             {

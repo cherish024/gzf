@@ -358,37 +358,6 @@ namespace gzf
             ((mainForm)this.Parent.Parent.Parent).reloadTab();
         }
 
-        private void 房费续费ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (common.User.type == 2)
-            {
-                MessageBox.Show("此用户没有权限进入该功能！");
-                return;
-            }
-            string openhouseid = common.GetOpenhouse_id(house.id);
-            if (openhouseid.Trim() == "")
-            {
-                MessageBox.Show("该房间无法结账！请正常开单后结账！");
-                return;
-            }
-            DataTable dt = DB.select("select top 1 * from gzf_openhouse where id=" + openhouseid + " order by id desc");
-            model.OpenHouse openhouse = new gzf.model.OpenHouse();
-            openhouse.Id = Convert.ToInt32(dt.Rows[0]["id"]);
-            openhouse.House_id = Convert.ToInt32(dt.Rows[0]["house_id"]);
-            openhouse.Guest_num = Convert.ToInt32(dt.Rows[0]["guest_num"]);
-            openhouse.Building_id = house.building_id;
-            //openhouse.Deposit = Convert.ToInt32(dt.Rows[0]["deposit"]);
-            openhouse.Start_time = Convert.ToDateTime(dt.Rows[0]["start_time"]);
-            openhouse.End_time = Convert.ToDateTime(dt.Rows[0]["end_time"]);
-            openhouse.Main_guest_id = Convert.ToInt32(dt.Rows[0]["main_guest_id"]);
-            openhouse.Price = Convert.ToInt32(dt.Rows[0]["price"]);
-            openhouse.User_id = Convert.ToInt32(dt.Rows[0]["user_id"]);
-            openhouse.Is_jiezhang = Convert.ToInt32(dt.Rows[0]["is_jiezhang"]);
-            openhouse.Is_team = Convert.ToInt32(dt.Rows[0]["is_team"]);
-            openhouse.Deposit = Convert.ToInt32(dt.Rows[0]["deposit"]);
-            xufeiForm xf = new xufeiForm(openhouse, this.house);
-            xf.ShowDialog();
-        }
 
         private void 水电费明细ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
