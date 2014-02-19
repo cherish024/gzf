@@ -23,7 +23,12 @@ namespace gzf
         {
             dataPower.AutoGenerateColumns = false;
             dataPower.DataSource = DB.select("select * from gzf_power,gzf_house where gzf_power.house_id=gzf_house.id and openhouse_id=" + openhouse.Id + " and gzf_power.status=0");
-            //comboBoxType.SelectedIndex = 0;
+            if (dataPower.RowCount > 0)
+            {
+                dataPower.MultiSelect = false;
+                dataPower.Rows[dataPower.RowCount - 1].Selected = true;
+                //dataPower.CurrentCell = dataPower.Rows[this.dataPower.Rows.Count - 1].Cells[1];
+            }
             string shuifei = DB.selectScalar("select sum(price) from gzf_power where openhouse_id=" + openhouse.Id + "and status=0");
             if (shuifei == "")
             {
@@ -35,9 +40,9 @@ namespace gzf
         private void btn_powerAdd_Click(object sender, EventArgs e)
         {
             int count = 0;
-            count = DB.exec_NonQuery("insert into gzf_power (type,openhouse_id,pay_month,price,house_id,user_id,pay_day,start_time,end_time,status) values (1," + openhouse.Id + ",0 ," + txtDian.Value + "," + house.id + "," + common.User.id + ", 0,'" + dateTimePicker1.Value.ToString() + "','" + dateTimePicker2.Value.ToString() + "',0)");
-            count = DB.exec_NonQuery("insert into gzf_power (type,openhouse_id,pay_month,price,house_id,user_id,pay_day,start_time,end_time,status) values (4," + openhouse.Id + ",0 ," + txtHot.Value + "," + house.id + "," + common.User.id + ", 0,'" + dateTimePicker1.Value.ToString() + "','" + dateTimePicker2.Value.ToString() + "',0)");
-            count = DB.exec_NonQuery("insert into gzf_power (type,openhouse_id,pay_month,price,house_id,user_id,pay_day,start_time,end_time,status) values (0," + openhouse.Id + ",0 ," + txtCool.Value + "," + house.id + "," + common.User.id + ", 0,'" + dateTimePicker1.Value.ToString() + "','" + dateTimePicker2.Value.ToString() + "',0)");
+            count = DB.exec_NonQuery("insert into gzf_power (type,openhouse_id,pay_month,price,house_id,user_id,pay_day,start_time,end_time,status,pay_method) values (1," + openhouse.Id + ",0 ," + txtDian.Value + "," + house.id + "," + common.User.id + ", 0,'" + dateTimePicker1.Value.ToString() + "','" + dateTimePicker2.Value.ToString() + "',0,1)");
+            count = DB.exec_NonQuery("insert into gzf_power (type,openhouse_id,pay_month,price,house_id,user_id,pay_day,start_time,end_time,status,pay_method) values (4," + openhouse.Id + ",0 ," + txtHot.Value + "," + house.id + "," + common.User.id + ", 0,'" + dateTimePicker1.Value.ToString() + "','" + dateTimePicker2.Value.ToString() + "',0,1)");
+            count = DB.exec_NonQuery("insert into gzf_power (type,openhouse_id,pay_month,price,house_id,user_id,pay_day,start_time,end_time,status,pay_method) values (0," + openhouse.Id + ",0 ," + txtCool.Value + "," + house.id + "," + common.User.id + ", 0,'" + dateTimePicker1.Value.ToString() + "','" + dateTimePicker2.Value.ToString() + "',0,1)");
 
             if (count > 0)
             {

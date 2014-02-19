@@ -49,6 +49,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblMethod = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPayMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDay)).BeginInit();
@@ -59,7 +61,7 @@
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(123, 402);
+            this.btn_edit.Location = new System.Drawing.Point(123, 451);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(93, 33);
             this.btn_edit.TabIndex = 2;
@@ -76,8 +78,8 @@
             0});
             this.txtPay.Location = new System.Drawing.Point(150, 131);
             this.txtPay.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.txtPay.Name = "txtPay";
@@ -177,8 +179,8 @@
             // 
             this.spinEditOther.Location = new System.Drawing.Point(276, 222);
             this.spinEditOther.Maximum = new decimal(new int[] {
-            1000000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditOther.Name = "spinEditOther";
@@ -189,8 +191,8 @@
             // 
             this.spinEditCride.Location = new System.Drawing.Point(167, 222);
             this.spinEditCride.Maximum = new decimal(new int[] {
-            1000000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditCride.Name = "spinEditCride";
@@ -201,8 +203,8 @@
             // 
             this.spinEditCash.Location = new System.Drawing.Point(44, 222);
             this.spinEditCash.Maximum = new decimal(new int[] {
-            1000000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditCash.Name = "spinEditCash";
@@ -253,11 +255,29 @@
             this.lblMethod.Size = new System.Drawing.Size(0, 12);
             this.lblMethod.TabIndex = 119;
             // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(143, 393);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(103, 21);
+            this.dateTimePicker3.TabIndex = 121;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(56, 399);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.TabIndex = 120;
+            this.label9.Text = "缴费时间：";
+            // 
             // editPayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 466);
+            this.ClientSize = new System.Drawing.Size(358, 511);
+            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lblMethod);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -321,5 +341,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblMethod;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label9;
     }
 }

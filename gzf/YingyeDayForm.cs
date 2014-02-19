@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using dotnetCHARTING.WinForms;
+using System.Xml;
 
 namespace gzf
 {
@@ -21,58 +22,44 @@ namespace gzf
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            XmlDocument configXml = new XmlDocument();
+            configXml.Load("config.xml");
+            string countJian =  configXml["config"]["Tongji"].InnerText;
             string date = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            string countOpenTotal = DB.selectScalar("select count(*) from gzf_openhouse where convert(varchar(10),addtime,120)='" + date + "'");
+            string countCloseTotal = DB.selectScalar("select count(*) from gzf_openhouse,gzf_zd where convert(varchar(10),gzf_zd.addtime,120)='" + date + "' and gzf_zd.openhouse_id=gzf_openhouse.id");
+
             lblOpenCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where convert(varchar(10),addtime,120)='" + date + "'");
-            lblHouseCount.Text = DB.selectScalar("select count(*) from gzf_house");
+            lblHouseCount.Text = (Convert.ToInt32(DB.selectScalar("select count(*) from gzf_house")) - Convert.ToInt32(countJian)).ToString();
             lblZDCount.Text = DB.selectScalar("select count(*) from gzf_zd where convert(varchar(10),addtime,120)='" + date + "'");
             lblStayCount.Text = DB.selectScalar("select count(*) from gzf_house,gzf_openhouse where gzf_openhouse.house_id=gzf_house.id and '" + date + "' between gzf_openhouse.addtime and end_time and (select count(*) from gzf_zd where gzf_zd.openhouse_id=gzf_openhouse.id and '" + date + "'<gzf_zd.addtime)=0");
             lblPercent.Text = (Convert.ToDouble(lblStayCount.Text) / Convert.ToDouble(lblHouseCount.Text)).ToString("P");
-            lblWater.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=0");
-            lblDian.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=1");
-            lbltv.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=2");
-            lblMeiqi.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=3");
-            lblHotwater.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=4");
-            lblKey.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=6");
-            lblDoor.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=5");
+            lblWater.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=0 and status=1");
+            lblDian.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=1 and status=1");
+            lbltv.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=2 and status=1");
+            lblMeiqi.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=3 and status=1");
+            lblHotwater.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=4 and status=1");
+            lblKey.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=6 and status=1");
+            lblDoor.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=5 and status=1");
+            lblOther.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and type=7 and status=1");
+            lblPowerTotal.Text = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and status=1");
             lblHousePrice.Text = DB.selectScalar("select sum(pay) from gzf_payment where convert(varchar(10),addtime,120)='" + date + "'");
             lblYaJing.Text = DB.selectScalar("select sum(deposit) from gzf_openhouse where convert(varchar(10),addtime,120)='" + date + "'");
-            if (lblWater.Text == "")
-            {
-                lblWater.Text = "0";
-            }
-            if (lblDian.Text == "")
-            {
-                lblDian.Text = "0";
-            }
-            if (lblHousePrice.Text == "")
-            {
-                lblHousePrice.Text = "0";
-            }
-            if (lblYaJing.Text == "")
-            {
-                lblYaJing.Text = "0";
-            }
-            if (lblHotwater.Text == "")
-            {
-                lblHotwater.Text = "0";
-            }
-            if (lbltv.Text == "")
-            {
-                lbltv.Text = "0";
-            }
-            if (lblMeiqi.Text == "")
-            {
-                lblMeiqi.Text = "0";
-            }
-            if (lblKey.Text == "")
-            {
-                lblKey.Text = "0";
-            }
-            if (lblDoor.Text == "")
-            {
-                lblDoor.Text = "0";
-            }
-            lblTotal.Text = (Convert.ToInt32(lblWater.Text) + Convert.ToInt32(lblDian.Text) + Convert.ToInt32(lblHousePrice.Text) + Convert.ToInt32(lblYaJing.Text)).ToString();
+
+            lblWater.Text = lblWater.Text == "" ? "0" : lblWater.Text;
+            lblDian.Text = lblDian.Text == "" ? "0" : lblDian.Text;
+            lblHousePrice.Text = lblHousePrice.Text == "" ? "0" : lblHousePrice.Text;
+            lblYaJing.Text = lblYaJing.Text == "" ? "0" : lblYaJing.Text;
+            lblHotwater.Text = lblHotwater.Text == "" ? "0" : lblHotwater.Text;
+            lbltv.Text = lbltv.Text == "" ? "0" : lbltv.Text;
+            lblMeiqi.Text = lblMeiqi.Text == "" ? "0" : lblMeiqi.Text;
+            lblKey.Text = lblKey.Text == "" ? "0" : lblKey.Text;
+            lblDoor.Text = lblDoor.Text == "" ? "0" : lblDoor.Text;
+            lblOther.Text = lblOther.Text == "" ? "0" : lblOther.Text;
+            lblPowerTotal.Text = lblPowerTotal.Text == "" ? "0" : lblPowerTotal.Text;
+
+
+            lblTotal.Text = (Convert.ToInt32(lblPowerTotal.Text) + Convert.ToInt32(lblHousePrice.Text) + Convert.ToInt32(lblYaJing.Text)).ToString();
             model.OpenHouseKind kind = new gzf.model.OpenHouseKind(0);
             SC.Clear();
             SC2.Clear();
@@ -81,9 +68,10 @@ namespace gzf
             groupBoxOpen.Controls.Clear();
             groupBoxClose.Controls.Clear();
             dataGridView1.Rows.Clear();
+            dataGridView2.Rows.Clear();
             foreach (DictionaryEntry de in kind.statusTable)
             {
-                //绑定导出明细开始
+                //绑定收费统计导出明细开始
                 DataTable money = DB.select("select SUM(gzf_payment.pay) as pay,SUM(gzf_payment.cash) as cash,SUM(gzf_payment.credit) as credit,SUM(gzf_payment.other) as other from gzf_openhouse,gzf_payment where gzf_payment.openhouse_id = gzf_openhouse.id and kind=" + de.Key + " and convert(varchar(10),gzf_payment.addtime,120)='" + date + "'");
                 DataGridViewRow dr = new DataGridViewRow();
                 dr.CreateCells(dataGridView1);
@@ -93,7 +81,7 @@ namespace gzf
                 dr.Cells[3].Value = money.Rows[0]["credit"].ToString() != "" ? money.Rows[0]["credit"] : "0";
                 dr.Cells[4].Value = money.Rows[0]["other"].ToString() != "" ? money.Rows[0]["other"] : "0";
                 dataGridView1.Rows.Add(dr);
-                //绑定导出明细结束
+                //绑定收费统计导出明细结束
                 string count = DB.selectScalar("select count(*) from gzf_openhouse where kind=" + de.Key + " and convert(varchar(10),addtime,120)='" + date + "'");
                 string count2 = DB.selectScalar("select count(*) from gzf_openhouse,gzf_zd where kind=" + de.Key + " and convert(varchar(10),gzf_zd.addtime,120)='" + date + "' and gzf_zd.openhouse_id=gzf_openhouse.id");
                 System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
@@ -109,6 +97,20 @@ namespace gzf
                 groupBoxOpen.Controls.Add(lbl);
                 groupBoxClose.Controls.Add(lbl2);
                 x += lbl.Size.Width + 6;
+                if (x > groupBoxOpen.Width)
+                {
+                    x = 10;
+                    y += 30;
+                }
+                //绑定房屋统计导出
+                DataGridViewRow dr3 = new DataGridViewRow();
+                dr3.CreateCells(dataGridView2);
+                dr3.Cells[0].Value = de.Value;
+                dr3.Cells[1].Value = count;
+                dr3.Cells[2].Value = (Convert.ToDouble(count) / Convert.ToDouble(countOpenTotal)).ToString("P");
+                dr3.Cells[3].Value = count2;
+                dr3.Cells[4].Value = (Convert.ToDouble(count2) / Convert.ToDouble(countCloseTotal)).ToString("P");
+                dataGridView2.Rows.Add(dr3);
                 //填充拼图元素
                 Series s = new Series();
                 s.Name = de.Value.ToString();
@@ -147,6 +149,14 @@ namespace gzf
                 dr.Cells[4].Value = other != "" ? other : "0";
                 dataGridView1.Rows.Add(dr);
             }
+            DataGridViewRow dr2 = new DataGridViewRow();
+            dr2.CreateCells(dataGridView1);
+            dr2.Cells[0].Value = "押金";
+            dr2.Cells[1].Value = lblYaJing.Text;
+            dr2.Cells[2].Value = lblYaJing.Text;
+            dr2.Cells[3].Value = "0";
+            dr2.Cells[4].Value = "0";
+            dataGridView1.Rows.Add(dr2);
             //加载饼图
             chart1.YAxis.Percent = true;
             //chart1.DefaultElement.SmartLabel.PieLabelMode = PieLabelMode.Outside;
@@ -177,6 +187,11 @@ namespace gzf
         private void btn_excel_Click(object sender, EventArgs e)
         {
             common.ExportForDataGridviewTongji2(dataGridView1, "sheet1.xls", true, "B", "金额", "现金", "信用卡", "其他");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            common.ExportForDataGridview(dataGridView2, "sheet1.xls", true);
         }
     }
 }

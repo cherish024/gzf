@@ -18,6 +18,7 @@ namespace gzf.model
             _ht.Add(2, "集体宿舍");
             _ht.Add(3, "办公用房");
             _ht.Add(4, "门面房");
+            _ht.Add(5, "商务办公房");
             _kind = kind;
 
             foreach (DictionaryEntry de in _ht)

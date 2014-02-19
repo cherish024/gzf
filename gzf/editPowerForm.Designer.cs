@@ -40,6 +40,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxPayMethod = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDay)).BeginInit();
@@ -56,7 +58,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(107, 268);
+            this.btn_save.Location = new System.Drawing.Point(108, 330);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(85, 27);
             this.btn_save.TabIndex = 26;
@@ -109,7 +111,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(132, 204);
+            this.dateTimePicker2.Location = new System.Drawing.Point(132, 264);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(103, 21);
             this.dateTimePicker2.TabIndex = 56;
@@ -117,7 +119,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(61, 210);
+            this.label23.Location = new System.Drawing.Point(61, 270);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(65, 12);
             this.label23.TabIndex = 55;
@@ -125,7 +127,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(132, 163);
+            this.dateTimePicker1.Location = new System.Drawing.Point(132, 223);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(103, 21);
             this.dateTimePicker1.TabIndex = 54;
@@ -133,17 +135,41 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(61, 169);
+            this.label21.Location = new System.Drawing.Point(61, 229);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 12);
             this.label21.TabIndex = 53;
             this.label21.Text = "开始时间：";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(61, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "付款方式：";
+            // 
+            // comboBoxPayMethod
+            // 
+            this.comboBoxPayMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPayMethod.FormattingEnabled = true;
+            this.comboBoxPayMethod.Items.AddRange(new object[] {
+            "现金",
+            "信用卡",
+            "其它方式"});
+            this.comboBoxPayMethod.Location = new System.Drawing.Point(132, 172);
+            this.comboBoxPayMethod.Name = "comboBoxPayMethod";
+            this.comboBoxPayMethod.Size = new System.Drawing.Size(103, 20);
+            this.comboBoxPayMethod.TabIndex = 67;
+            // 
             // editPowerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 336);
+            this.ClientSize = new System.Drawing.Size(304, 403);
+            this.Controls.Add(this.comboBoxPayMethod);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.dateTimePicker1);
@@ -184,5 +210,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxPayMethod;
     }
 }

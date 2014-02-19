@@ -51,7 +51,7 @@ namespace gzf
             }
             comboBoxKind.ValueMember = "Key";
             comboBoxKind.DisplayMember = "Value";
-            comboBoxKind.SelectedIndex = 4;
+            comboBoxKind.SelectedIndex = 5;
 
             comboBoxCompany.DataSource = common.getCompany();
             comboBoxCompany.DisplayMember = "name";
@@ -136,8 +136,10 @@ namespace gzf
             string count = DB.selectScalar("select count(*) from gzf_payment where fapiao='" + txtFapiao.Text + "'");
             if (count != "0")
             {
-                MessageBox.Show("发票号码已存在，请检查！");
-                return;
+                if (MessageBox.Show("发票号码已存在,是否继续操作?", "确认发票号码", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
             }
             Byte[] bytes = new Byte[0];
             //if (lblStatus.Text == "读卡成功！")
@@ -629,6 +631,11 @@ namespace gzf
         private void payDay_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker2.Value = dateTimePicker1.Value.AddDays(Convert.ToInt32(payDay.Value));
+        }
+
+        private void spinEditMoney_ValueChanged(object sender, EventArgs e)
+        {
+            spinEditDeposit.Value = spinEditMoney.Value;
         }
 
 

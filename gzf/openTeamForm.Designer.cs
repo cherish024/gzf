@@ -96,6 +96,7 @@
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_company = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label29 = new System.Windows.Forms.Label();
             this.btn_read2 = new System.Windows.Forms.Button();
@@ -121,7 +122,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.txtName2 = new System.Windows.Forms.TextBox();
-            this.btn_company = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -668,8 +668,8 @@
             0});
             this.spinEditMoney.Location = new System.Drawing.Point(194, 57);
             this.spinEditMoney.Maximum = new decimal(new int[] {
-            10000000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditMoney.Name = "spinEditMoney";
@@ -849,6 +849,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "团队主体";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_company
+            // 
+            this.btn_company.Location = new System.Drawing.Point(351, 245);
+            this.btn_company.Name = "btn_company";
+            this.btn_company.Size = new System.Drawing.Size(61, 23);
+            this.btn_company.TabIndex = 63;
+            this.btn_company.Text = "单位维护";
+            this.btn_company.UseVisualStyleBackColor = true;
+            this.btn_company.Click += new System.EventHandler(this.btn_company_Click);
             // 
             // tabPage2
             // 
@@ -1106,16 +1116,6 @@
             this.txtName2.Name = "txtName2";
             this.txtName2.Size = new System.Drawing.Size(100, 21);
             this.txtName2.TabIndex = 89;
-            // 
-            // btn_company
-            // 
-            this.btn_company.Location = new System.Drawing.Point(351, 245);
-            this.btn_company.Name = "btn_company";
-            this.btn_company.Size = new System.Drawing.Size(61, 23);
-            this.btn_company.TabIndex = 63;
-            this.btn_company.Text = "单位维护";
-            this.btn_company.UseVisualStyleBackColor = true;
-            this.btn_company.Click += new System.EventHandler(this.btn_company_Click);
             // 
             // openTeamForm
             // 

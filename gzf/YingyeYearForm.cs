@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using dotnetCHARTING.WinForms;
 using System.Collections;
+using System.Xml;
 
 namespace gzf
 {
@@ -27,56 +28,40 @@ namespace gzf
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            lblOpenCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where year(addtime)=" + comboBoxYear.SelectedItem);
-            lblHouseCount.Text = DB.selectScalar("select count(*) from gzf_house");
-            lblZDCount.Text = DB.selectScalar("select count(*) from gzf_zd where year(addtime)=" + comboBoxYear.SelectedItem);
-            lblWater.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=0");
-            lblDian.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=1");
-            lbltv.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=2");
-            lblMeiqi.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=3");
-            lblHotwater.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=4");
-            lblKey.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=6");
-            lblDoor.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=5");
+            XmlDocument configXml = new XmlDocument();
+            configXml.Load("config.xml");
+            string countJian = configXml["config"]["Tongji"].InnerText;
+            string countOpenTotal = DB.selectScalar("select count(*) from gzf_openhouse where year(addtime)=" + comboBoxYear.SelectedItem);
+            string countCloseTotal = DB.selectScalar("select count(*) from gzf_openhouse,gzf_zd where year(gzf_zd.addtime)=" + comboBoxYear.SelectedItem + " and gzf_zd.openhouse_id=gzf_openhouse.id");
 
+            lblOpenCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where year(addtime)=" + comboBoxYear.SelectedItem);
+            lblHouseCount.Text = (Convert.ToInt32(DB.selectScalar("select count(*) from gzf_house")) - Convert.ToInt32(countJian)).ToString();
+            lblZDCount.Text = DB.selectScalar("select count(*) from gzf_zd where year(addtime)=" + comboBoxYear.SelectedItem);
+            lblWater.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=0 and status=1");
+            lblDian.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=1 and status=1");
+            lbltv.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=2 and status=1");
+            lblMeiqi.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=3 and status=1");
+            lblHotwater.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=4 and status=1");
+            lblKey.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=6 and status=1");
+            lblDoor.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=5 and status=1");
+            lblOther.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=7 and status=1");
+            lblPowerTotal.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and status=1");
             lblHousePrice.Text = DB.selectScalar("select sum(pay) from gzf_payment where year(addtime)=" + comboBoxYear.SelectedItem);
             lblYaJing.Text = DB.selectScalar("select sum(deposit) from gzf_openhouse where year(addtime)=" + comboBoxYear.SelectedItem);
-            if (lblWater.Text == "")
-            {
-                lblWater.Text = "0";
-            }
-            if (lblDian.Text == "")
-            {
-                lblDian.Text = "0";
-            }
-            if (lblHousePrice.Text == "")
-            {
-                lblHousePrice.Text = "0";
-            }
-            if (lblYaJing.Text == "")
-            {
-                lblYaJing.Text = "0";
-            }
-            if (lblHotwater.Text == "")
-            {
-                lblHotwater.Text = "0";
-            }
-            if (lbltv.Text == "")
-            {
-                lbltv.Text = "0";
-            }
-            if (lblMeiqi.Text == "")
-            {
-                lblMeiqi.Text = "0";
-            }
-            if (lblKey.Text == "")
-            {
-                lblKey.Text = "0";
-            }
-            if (lblDoor.Text == "")
-            {
-                lblDoor.Text = "0";
-            }
-            lblTotal.Text = (Convert.ToInt32(lblWater.Text) + Convert.ToInt32(lblDian.Text) + Convert.ToInt32(lblHousePrice.Text) + Convert.ToInt32(lblYaJing.Text)).ToString();
+
+            lblWater.Text = lblWater.Text == "" ? "0" : lblWater.Text;
+            lblDian.Text = lblDian.Text == "" ? "0" : lblDian.Text;
+            lblHousePrice.Text = lblHousePrice.Text == "" ? "0" : lblHousePrice.Text;
+            lblYaJing.Text = lblYaJing.Text == "" ? "0" : lblYaJing.Text;
+            lblHotwater.Text = lblHotwater.Text == "" ? "0" : lblHotwater.Text;
+            lbltv.Text = lbltv.Text == "" ? "0" : lbltv.Text;
+            lblMeiqi.Text = lblMeiqi.Text == "" ? "0" : lblMeiqi.Text;
+            lblKey.Text = lblKey.Text == "" ? "0" : lblKey.Text;
+            lblDoor.Text = lblDoor.Text == "" ? "0" : lblDoor.Text;
+            lblOther.Text = lblOther.Text == "" ? "0" : lblOther.Text;
+            lblPowerTotal.Text = lblPowerTotal.Text == "" ? "0" : lblPowerTotal.Text;
+
+            lblTotal.Text = (Convert.ToInt32(lblPowerTotal.Text) + Convert.ToInt32(lblHousePrice.Text) + Convert.ToInt32(lblYaJing.Text)).ToString();
 
             SC.Clear();
             SC2.Clear();
@@ -86,6 +71,7 @@ namespace gzf
             groupBoxOpen.Controls.Clear();
             groupBoxClose.Controls.Clear();
             dataGridView1.Rows.Clear();
+            dataGridView2.Rows.Clear();
             foreach (DictionaryEntry de in kind.statusTable)
             {
                 //绑定导出明细开始
@@ -114,6 +100,20 @@ namespace gzf
                 groupBoxOpen.Controls.Add(lbl);
                 groupBoxClose.Controls.Add(lbl2);
                 x += lbl.Size.Width + 6;
+                if (x > groupBoxOpen.Width)
+                {
+                    x = 10;
+                    y += 30;
+                }
+                //绑定房屋统计导出
+                DataGridViewRow dr3 = new DataGridViewRow();
+                dr3.CreateCells(dataGridView2);
+                dr3.Cells[0].Value = de.Value;
+                dr3.Cells[1].Value = count;
+                dr3.Cells[2].Value = (Convert.ToDouble(count) / Convert.ToDouble(countOpenTotal)).ToString("P");
+                dr3.Cells[3].Value = count2;
+                dr3.Cells[4].Value = (Convert.ToDouble(count2) / Convert.ToDouble(countCloseTotal)).ToString("P");
+                dataGridView2.Rows.Add(dr3);
                 //填充拼图元素
                 Series s = new Series();
                 s.Name = de.Value.ToString();
@@ -152,6 +152,14 @@ namespace gzf
                 dr.Cells[4].Value = other != "" ? other : "0";
                 dataGridView1.Rows.Add(dr);
             }
+            DataGridViewRow dr2 = new DataGridViewRow();
+            dr2.CreateCells(dataGridView1);
+            dr2.Cells[0].Value = "押金";
+            dr2.Cells[1].Value = lblYaJing.Text;
+            dr2.Cells[2].Value = lblYaJing.Text;
+            dr2.Cells[3].Value = "0";
+            dr2.Cells[4].Value = "0";
+            dataGridView1.Rows.Add(dr2);
             //加载饼图
             chart1.YAxis.Percent = true;
             //chart1.DefaultElement.SmartLabel.PieLabelMode = PieLabelMode.Outside;
@@ -177,6 +185,11 @@ namespace gzf
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            common.ExportForDataGridview(dataGridView2, "sheet1.xls", true);
         }
     }
 }

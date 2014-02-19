@@ -70,14 +70,14 @@
             this.spinEditCash = new System.Windows.Forms.NumericUpDown();
             this.label28 = new System.Windows.Forms.Label();
             this.txtWuye = new System.Windows.Forms.NumericUpDown();
-            this.label27 = new System.Windows.Forms.Label();
-            this.comboBoxKind = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.comboBoxPayMethod = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.label27 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxKind = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.comboBoxPayMethod = new System.Windows.Forms.ComboBox();
             this.txtFapiao = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtHouseRemark = new System.Windows.Forms.TextBox();
@@ -247,13 +247,14 @@
             0});
             this.spinEditMoney.Location = new System.Drawing.Point(69, 8);
             this.spinEditMoney.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditMoney.Name = "spinEditMoney";
             this.spinEditMoney.Size = new System.Drawing.Size(102, 21);
             this.spinEditMoney.TabIndex = 7;
+            this.spinEditMoney.ValueChanged += new System.EventHandler(this.spinEditMoney_ValueChanged);
             // 
             // spinEditDeposit
             // 
@@ -526,8 +527,8 @@
             // 
             this.spinEditOther.Location = new System.Drawing.Point(443, 289);
             this.spinEditOther.Maximum = new decimal(new int[] {
-            1000000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditOther.Name = "spinEditOther";
@@ -538,8 +539,8 @@
             // 
             this.spinEditCride.Location = new System.Drawing.Point(268, 289);
             this.spinEditCride.Maximum = new decimal(new int[] {
-            1000000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditCride.Name = "spinEditCride";
@@ -550,8 +551,8 @@
             // 
             this.spinEditCash.Location = new System.Drawing.Point(104, 289);
             this.spinEditCash.Maximum = new decimal(new int[] {
-            1000000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditCash.Name = "spinEditCash";
@@ -585,6 +586,15 @@
             this.txtWuye.TabIndex = 12;
             this.txtWuye.Click += new System.EventHandler(this.txtWuye_Click);
             // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker4.Location = new System.Drawing.Point(327, 238);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(102, 21);
+            this.dateTimePicker4.TabIndex = 4;
+            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -593,6 +603,15 @@
             this.label27.Size = new System.Drawing.Size(53, 12);
             this.label27.TabIndex = 41;
             this.label27.Text = "物业费：";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker3.Location = new System.Drawing.Point(84, 238);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(100, 21);
+            this.dateTimePicker3.TabIndex = 3;
             // 
             // comboBoxKind
             // 
@@ -603,6 +622,15 @@
             this.comboBoxKind.Size = new System.Drawing.Size(82, 20);
             this.comboBoxKind.TabIndex = 13;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(17, 242);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(65, 12);
+            this.label25.TabIndex = 34;
+            this.label25.Text = "预付开始：";
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -612,6 +640,15 @@
             this.label26.TabIndex = 39;
             this.label26.Text = "付款方式：";
             this.label26.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(258, 242);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(65, 12);
+            this.label24.TabIndex = 35;
+            this.label24.Text = "预付结束：";
             // 
             // comboBoxPayMethod
             // 
@@ -626,42 +663,6 @@
             this.comboBoxPayMethod.Size = new System.Drawing.Size(82, 20);
             this.comboBoxPayMethod.TabIndex = 11;
             this.comboBoxPayMethod.Visible = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(258, 242);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 12);
-            this.label24.TabIndex = 35;
-            this.label24.Text = "预付结束：";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(17, 242);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(65, 12);
-            this.label25.TabIndex = 34;
-            this.label25.Text = "预付开始：";
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(84, 238);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(100, 21);
-            this.dateTimePicker3.TabIndex = 3;
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker4.Location = new System.Drawing.Point(327, 238);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(102, 21);
-            this.dateTimePicker4.TabIndex = 4;
             // 
             // txtFapiao
             // 
@@ -745,8 +746,8 @@
             0});
             this.spinEditDay.Location = new System.Drawing.Point(87, 5);
             this.spinEditDay.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.spinEditDay.Name = "spinEditDay";

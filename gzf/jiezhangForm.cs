@@ -216,6 +216,14 @@ namespace gzf
                 MessageBox.Show("请检查现金、信用卡、其他是否与总金额一致");
                 return;
             }
+            string fpcount = DB.selectScalar("select count(*) from gzf_payment where fapiao='" + txtFapiao1.Text + "'");
+            if (fpcount != "0")
+            {
+                if (MessageBox.Show("发票号码已存在,是否继续操作?", "确认发票号码", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+            }
             int count = 0;
             if (chkDay.Checked)
             {

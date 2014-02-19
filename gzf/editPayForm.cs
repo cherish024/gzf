@@ -27,6 +27,7 @@ namespace gzf
             {
                 dateTimePicker1.Value = Convert.ToDateTime(dt.Rows[0]["start_time"]);
                 dateTimePicker2.Value = Convert.ToDateTime(dt.Rows[0]["end_time"]);
+                dateTimePicker3.Value = Convert.ToDateTime(dt.Rows[0]["addtime"]);
             }
             catch
             { }
@@ -40,7 +41,7 @@ namespace gzf
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            int count = DB.exec_NonQuery("update gzf_payment set pay_month=" + txtPayMonth.Value + ", pay=" + txtPay.Value + ", pay_day=" + txtDay.Value + ", start_time='" + dateTimePicker1.Value + "', end_time='" + dateTimePicker2.Value + "', fapiao='" + txtFapiao.Text + "', cash=" + spinEditCash.Value + ", credit=" + spinEditCride.Value + ", other=" + spinEditOther.Value + " where id=" + paymentID);
+            int count = DB.exec_NonQuery("update gzf_payment set pay_month=" + txtPayMonth.Value + ", pay=" + txtPay.Value + ", pay_day=" + txtDay.Value + ", start_time='" + dateTimePicker1.Value + "', end_time='" + dateTimePicker2.Value + "', addtime='" + dateTimePicker3.Value + "', fapiao='" + txtFapiao.Text + "', cash=" + spinEditCash.Value + ", credit=" + spinEditCride.Value + ", other=" + spinEditOther.Value + " where id=" + paymentID);
             if (count > 0)
             {
                 MessageBox.Show("编辑成功！");

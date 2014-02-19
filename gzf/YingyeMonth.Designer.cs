@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YingyeMonth));
+            dotnetCHARTING.WinForms.Label label22 = new dotnetCHARTING.WinForms.Label();
             dotnetCHARTING.WinForms.Label label20 = new dotnetCHARTING.WinForms.Label();
-            dotnetCHARTING.WinForms.Label label18 = new dotnetCHARTING.WinForms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblPowerTotal = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblOther = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblKey = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lblDoor = new System.Windows.Forms.Label();
@@ -52,7 +56,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPercent = new System.Windows.Forms.Label();
             this.lblStayCount = new System.Windows.Forms.Label();
@@ -79,11 +83,19 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_search
@@ -95,6 +107,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblPowerTotal);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.lblOther);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.lblKey);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.lblDoor);
@@ -114,10 +130,30 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label19);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // lblPowerTotal
+            // 
+            resources.ApplyResources(this.lblPowerTotal, "lblPowerTotal");
+            this.lblPowerTotal.Name = "lblPowerTotal";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // lblOther
+            // 
+            resources.ApplyResources(this.lblOther, "lblOther");
+            this.lblOther.Name = "lblOther";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
             // 
             // lblKey
             // 
@@ -214,10 +250,10 @@
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
             // 
-            // label7
+            // label19
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
             // 
             // groupBox1
             // 
@@ -396,7 +432,7 @@
             this.chart2.DataGrid = null;
             this.chart2.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart2.DefaultElement.ShowValue = true;
-            this.chart2.LabelChart = label20;
+            this.chart2.LabelChart = label22;
             resources.ApplyResources(this.chart2, "chart2");
             this.chart2.Name = "chart2";
             this.chart2.NoDataLabel.Text = "No Data";
@@ -452,7 +488,7 @@
             this.chart1.DataGrid = null;
             this.chart1.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart1.DefaultElement.ShowValue = true;
-            this.chart1.LabelChart = label18;
+            this.chart1.LabelChart = label20;
             resources.ApplyResources(this.chart1, "chart1");
             this.chart1.Name = "chart1";
             this.chart1.NoDataLabel.Text = "No Data";
@@ -510,10 +546,68 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9});
+            resources.ApplyResources(this.dataGridView2, "dataGridView2");
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            resources.ApplyResources(this.Column6, "Column6");
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            resources.ApplyResources(this.Column7, "Column7");
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            resources.ApplyResources(this.Column8, "Column8");
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            resources.ApplyResources(this.Column9, "Column9");
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // YingyeMonth
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
@@ -539,6 +633,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,6 +659,20 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Button btn_excel;
+        private System.Windows.Forms.GroupBox groupBoxClose;
+        private System.Windows.Forms.GroupBox groupBoxOpen;
+        private dotnetCHARTING.WinForms.Chart chart2;
+        private dotnetCHARTING.WinForms.Chart chart1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Label lblPowerTotal;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblOther;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblDoor;
@@ -583,16 +692,13 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBoxClose;
-        private System.Windows.Forms.GroupBox groupBoxOpen;
-        private dotnetCHARTING.WinForms.Chart chart2;
-        private dotnetCHARTING.WinForms.Chart chart1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Button button1;
     }
 }

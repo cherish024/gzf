@@ -44,7 +44,7 @@ namespace gzf
             }
             comboBoxKind.ValueMember = "Key";
             comboBoxKind.DisplayMember = "Value";
-            comboBoxKind.SelectedIndex = 4;
+            comboBoxKind.SelectedIndex = 5;
             comboBoxCompany.DataSource = common.getCompany();
             comboBoxCompany.DisplayMember = "name";
             comboBoxCompany.SelectedItem = null;

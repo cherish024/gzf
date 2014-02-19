@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dotnetCHARTING.WinForms.Label label12 = new dotnetCHARTING.WinForms.Label();
-            dotnetCHARTING.WinForms.Label label18 = new dotnetCHARTING.WinForms.Label();
+            dotnetCHARTING.WinForms.Label label19 = new dotnetCHARTING.WinForms.Label();
+            dotnetCHARTING.WinForms.Label label20 = new dotnetCHARTING.WinForms.Label();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YingyeDayForm));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,13 +39,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblPercent = new System.Windows.Forms.Label();
             this.lblStayCount = new System.Windows.Forms.Label();
             this.lblZDCount = new System.Windows.Forms.Label();
             this.lblHouseCount = new System.Windows.Forms.Label();
             this.lblOpenCount = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblPowerTotal = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblOther = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblKey = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lblDoor = new System.Windows.Forms.Label();
@@ -72,16 +81,19 @@
             this.groupBoxClose = new System.Windows.Forms.GroupBox();
             this.chart1 = new dotnetCHARTING.WinForms.Chart();
             this.chart2 = new dotnetCHARTING.WinForms.Chart();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -159,33 +171,10 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(591, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(523, 147);
+            this.groupBox1.Size = new System.Drawing.Size(600, 190);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "房屋统计";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(1079, 17);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(35, 37);
-            this.dataGridView1.TabIndex = 16;
-            this.dataGridView1.Visible = false;
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // lblPercent
             // 
@@ -232,8 +221,65 @@
             this.lblOpenCount.TabIndex = 7;
             this.lblOpenCount.Text = "0";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(1079, 17);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(35, 37);
+            this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.Visible = false;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "类型";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "金额";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "现金";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "信用卡";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "其他";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblPowerTotal);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.lblOther);
+            this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.lblKey);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.lblDoor);
@@ -256,10 +302,46 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(40, 78);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(523, 147);
+            this.groupBox2.Size = new System.Drawing.Size(523, 190);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "收费统计";
+            // 
+            // lblPowerTotal
+            // 
+            this.lblPowerTotal.AutoSize = true;
+            this.lblPowerTotal.Location = new System.Drawing.Point(102, 113);
+            this.lblPowerTotal.Name = "lblPowerTotal";
+            this.lblPowerTotal.Size = new System.Drawing.Size(11, 12);
+            this.lblPowerTotal.TabIndex = 31;
+            this.lblPowerTotal.Text = "0";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(28, 113);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 12);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "能源费总计：";
+            // 
+            // lblOther
+            // 
+            this.lblOther.AutoSize = true;
+            this.lblOther.Location = new System.Drawing.Point(457, 76);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(11, 12);
+            this.lblOther.TabIndex = 29;
+            this.lblOther.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(387, 76);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 12);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "缴纳其他：";
             // 
             // lblKey
             // 
@@ -345,7 +427,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(207, 114);
+            this.lblTotal.Location = new System.Drawing.Point(474, 159);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(11, 12);
             this.lblTotal.TabIndex = 19;
@@ -363,7 +445,7 @@
             // lblYaJing
             // 
             this.lblYaJing.AutoSize = true;
-            this.lblYaJing.Location = new System.Drawing.Point(91, 114);
+            this.lblYaJing.Location = new System.Drawing.Point(91, 159);
             this.lblYaJing.Name = "lblYaJing";
             this.lblYaJing.Size = new System.Drawing.Size(11, 12);
             this.lblYaJing.TabIndex = 18;
@@ -372,7 +454,7 @@
             // lblHousePrice
             // 
             this.lblHousePrice.AutoSize = true;
-            this.lblHousePrice.Location = new System.Drawing.Point(450, 76);
+            this.lblHousePrice.Location = new System.Drawing.Point(207, 159);
             this.lblHousePrice.Name = "lblHousePrice";
             this.lblHousePrice.Size = new System.Drawing.Size(11, 12);
             this.lblHousePrice.TabIndex = 17;
@@ -399,7 +481,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(144, 114);
+            this.label11.Location = new System.Drawing.Point(403, 159);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 12);
             this.label11.TabIndex = 14;
@@ -408,7 +490,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 114);
+            this.label10.Location = new System.Drawing.Point(28, 159);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
             this.label10.TabIndex = 13;
@@ -417,7 +499,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(387, 76);
+            this.label9.Location = new System.Drawing.Point(144, 159);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 12;
@@ -457,13 +539,13 @@
             this.btn_excel.Name = "btn_excel";
             this.btn_excel.Size = new System.Drawing.Size(87, 23);
             this.btn_excel.TabIndex = 15;
-            this.btn_excel.Text = "导出Excel";
+            this.btn_excel.Text = "收费统计导出";
             this.btn_excel.UseVisualStyleBackColor = true;
             this.btn_excel.Click += new System.EventHandler(this.btn_excel_Click);
             // 
             // groupBoxOpen
             // 
-            this.groupBoxOpen.Location = new System.Drawing.Point(40, 251);
+            this.groupBoxOpen.Location = new System.Drawing.Point(40, 291);
             this.groupBoxOpen.Name = "groupBoxOpen";
             this.groupBoxOpen.Size = new System.Drawing.Size(523, 91);
             this.groupBoxOpen.TabIndex = 16;
@@ -472,7 +554,7 @@
             // 
             // groupBoxClose
             // 
-            this.groupBoxClose.Location = new System.Drawing.Point(40, 380);
+            this.groupBoxClose.Location = new System.Drawing.Point(40, 420);
             this.groupBoxClose.Name = "groupBoxClose";
             this.groupBoxClose.Size = new System.Drawing.Size(523, 99);
             this.groupBoxClose.TabIndex = 17;
@@ -525,8 +607,8 @@
             this.chart1.DataGrid = null;
             this.chart1.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart1.DefaultElement.ShowValue = true;
-            this.chart1.LabelChart = label12;
-            this.chart1.Location = new System.Drawing.Point(591, 251);
+            this.chart1.LabelChart = label19;
+            this.chart1.Location = new System.Drawing.Point(591, 291);
             this.chart1.Name = "chart1";
             this.chart1.NoDataLabel.Text = "No Data";
             this.chart1.Size = new System.Drawing.Size(293, 228);
@@ -582,8 +664,8 @@
             this.chart2.DataGrid = null;
             this.chart2.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart2.DefaultElement.ShowValue = true;
-            this.chart2.LabelChart = label18;
-            this.chart2.Location = new System.Drawing.Point(901, 251);
+            this.chart2.LabelChart = label20;
+            this.chart2.Location = new System.Drawing.Point(901, 291);
             this.chart2.Name = "chart2";
             this.chart2.NoDataLabel.Text = "No Data";
             this.chart2.Size = new System.Drawing.Size(290, 228);
@@ -594,41 +676,75 @@
             this.chart2.Title = "退房类型比例";
             this.chart2.Type = dotnetCHARTING.WinForms.ChartType.Pie;
             // 
-            // Column1
+            // button1
             // 
-            this.Column1.HeaderText = "类型";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.button1.Location = new System.Drawing.Point(459, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "房屋统计导出";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Column2
+            // dataGridView2
             // 
-            this.Column2.HeaderText = "金额";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9});
+            this.dataGridView2.Location = new System.Drawing.Point(974, 17);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(35, 37);
+            this.dataGridView2.TabIndex = 21;
+            this.dataGridView2.Visible = false;
             // 
-            // Column3
+            // dataGridViewTextBoxColumn1
             // 
-            this.Column3.HeaderText = "现金";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "类型";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // Column4
+            // Column6
             // 
-            this.Column4.HeaderText = "信用卡";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.Column6.HeaderText = "开房数量";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
-            // Column5
+            // Column7
             // 
-            this.Column5.HeaderText = "其他";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.Column7.HeaderText = "开房占比";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "退房数量";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "退房占比";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // YingyeDayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 504);
+            this.ClientSize = new System.Drawing.Size(1215, 552);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
@@ -655,6 +771,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,5 +825,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Label lblOther;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblPowerTotal;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }
