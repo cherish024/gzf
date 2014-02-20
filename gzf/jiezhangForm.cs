@@ -137,20 +137,23 @@ namespace gzf
             {
                 lblsn.Text = "";
                 DataTable dt = DB.select("select * from gzf_openhouse,gzf_house,gzf_building where is_team=" + openhouse.Is_team + " and gzf_house.building_id=gzf_building.id and gzf_openhouse.house_id=gzf_house.id and is_jiezhang=0");
-                foreach (DataRow dr in dt.Rows)
-                {
-                    if (dr["id"].ToString() == openhouse.Is_team.ToString())
+                if (dt.Rows.Count > 0)
+                { 
+                    foreach (DataRow dr in dt.Rows)
                     {
-                        lblsn.Text += "*" + Convert.ToInt32(dr["sn"]) + "  ";
-                    }
-                    else
-                    {
-                        lblsn.Text += Convert.ToInt32(dr["sn"]) + "  ";
-                    }
-                    
+                        if (dr["id"].ToString() == openhouse.Is_team.ToString())
+                        {
+                            lblsn.Text += "*" + Convert.ToInt32(dr["sn"]) + "  ";
+                        }
+                        else
+                        {
+                            lblsn.Text += Convert.ToInt32(dr["sn"]) + "  ";
+                        }
+                        
 
+                    }
+                    lblsn.Text = lblsn.Text.Substring(0, 50);
                 }
-                lblsn.Text = lblsn.Text.Substring(0, 50);
             }
             crystalReportViewer1_Click(sender, new EventArgs());
         }
@@ -173,7 +176,7 @@ namespace gzf
             //}
             //DB.exec_NonQuery("insert into gzf_zd (sn,openhouse_id,guest_id,shui_price,dian_price,house_price,is_team,total_price,user_id) values ('" + zdsn + "'," + openhouse.Id + "," + openhouse.Main_guest_id + "," + lblShui.Text + "," + lblDian.Text + "," + lblHouseTotal.Text + "," + openhouse.Is_team + "," + lblTotal.Text + "," + common.User.id + ")");
             //this.Close();
-            jiezhangtuikuanForm jz = new jiezhangtuikuanForm(openhouse,lblHot.Text,lblDian.Text,lblHouseTotal.Text,lblTotal.Text);
+            jiezhangtuikuanForm jz = new jiezhangtuikuanForm(openhouse,lblHot.Text,lblDian.Text,lblHouseTotal.Text,lblTotal.Text,house);
             jz.ShowDialog(this);
             if (Isjiezhang == 1)
             {

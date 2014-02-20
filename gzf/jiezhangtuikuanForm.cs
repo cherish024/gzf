@@ -18,8 +18,9 @@ namespace gzf
         string total;
         string powerTotal;
         string tv;
+        model.House house;
         private string zdsn = "ZD" + DateTime.Now.ToString("yyyyMMddhhmmss");
-        public jiezhangtuikuanForm(model.OpenHouse openhouse, string shui, string dian, string houseTotal, string total)
+        public jiezhangtuikuanForm(model.OpenHouse openhouse, string shui, string dian, string houseTotal, string total, model.House house)
         {
             InitializeComponent();
             this.openhouse = openhouse;
@@ -27,6 +28,7 @@ namespace gzf
             this.dian = dian;
             this.houseTotal = houseTotal;
             this.total = total;
+            this.house = house;
         }
 
         private void jiezhangtuikuanForm_Load(object sender, EventArgs e)
@@ -55,7 +57,15 @@ namespace gzf
         private void btn_jz_Click(object sender, EventArgs e)
         {
             DB.exec_NonQuery("update gzf_openhouse set is_jiezhang=1 where id=" + openhouse.Id);
-            DB.exec_NonQuery("update gzf_house set status=2 where id=" + openhouse.House_id);
+            if (openhouse.Is_team == 1)
+            {
+                DB.exec_NonQuery("update gzf_house set status=2 where id=" + house.id);
+            }
+            else
+            {
+                DB.exec_NonQuery("update gzf_house set status=2 where id=" + openhouse.House_id);
+            }
+            
             if (openhouse.Is_team > 0)
             {
                 DataTable dt = DB.select("select house_id from gzf_openhouse where is_team=" + openhouse.Id + "and is_jiezhang=0 and id!=" + openhouse.Id);

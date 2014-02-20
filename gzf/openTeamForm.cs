@@ -328,11 +328,11 @@ namespace gzf
 
         private void btn_xieyi_Click(object sender, EventArgs e)
         {
-            if (spinEditDeposit.Value == 0)
-            {
-                MessageBox.Show("请填写押金！");
-                return;
-            }
+            //if (spinEditDeposit.Value == 0)
+            //{
+            //    MessageBox.Show("请填写押金！");
+            //    return;
+            //}
             string count = DB.selectScalar("select count(*) from gzf_payment where fapiao='" + txtFapiao.Text + "'");
             if (count != "0")
             {

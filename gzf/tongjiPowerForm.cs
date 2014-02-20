@@ -63,9 +63,13 @@ namespace gzf
                 {
                     e.Value = "门禁卡";
                 }
-                else
+                else if (e.Value.ToString() == "6")
                 {
                     e.Value = "钥匙";
+                }
+                else
+                {
+                    e.Value = "其他";
                 }
             }
             if (e.ColumnIndex == 1)

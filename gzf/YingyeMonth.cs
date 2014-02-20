@@ -68,6 +68,7 @@ namespace gzf
             groupBoxClose.Controls.Clear();
             dataGridView1.Rows.Clear();
             dataGridView2.Rows.Clear();
+            dataGridView3.Rows.Clear();
             foreach (DictionaryEntry de in kind.statusTable)
             {
                 //绑定导出明细开始
@@ -135,10 +136,10 @@ namespace gzf
             foreach (DictionaryEntry de in powertype.statusTable)
             {
                 string cash = "0", credit = "0", other = "0";
-                DataTable money = DB.select("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + "  and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1");
-                cash = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1 and gzf_power.pay_method=1");
-                credit = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1 and gzf_power.pay_method=2");
-                other = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1 and gzf_power.pay_method=3");
+                DataTable money = DB.select("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and year(gzf_power.addtime)=" + comboBoxYear.SelectedItem + " and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1");
+                cash = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and year(gzf_power.addtime)=" + comboBoxYear.SelectedItem + " and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1 and gzf_power.pay_method=1");
+                credit = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and year(gzf_power.addtime)=" + comboBoxYear.SelectedItem + " and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1 and gzf_power.pay_method=2");
+                other = DB.selectScalar("select SUM(gzf_power.price) as pay from gzf_openhouse,gzf_power where gzf_power.openhouse_id = gzf_openhouse.id and gzf_power.type=" + de.Key + " and year(gzf_power.addtime)=" + comboBoxYear.SelectedItem + " and month(gzf_power.addtime)=" + comboBoxMonth.SelectedItem + " and status=1 and gzf_power.pay_method=3");
                 DataGridViewRow dr = new DataGridViewRow();
                 dr.CreateCells(dataGridView1);
                 dr.Cells[0].Value = de.Value;
@@ -171,6 +172,78 @@ namespace gzf
             chart2.SeriesCollection.Add(SC2);
             chart1.Refresh();
             chart2.Refresh();
+
+            //绑定明细导出
+            DataTable payDT = DB.select("select * from gzf_payment payment,gzf_house house where payment.house_id=house.id and year(payment.addtime)=" + comboBoxYear.SelectedItem + " and month(payment.addtime)=" + comboBoxMonth.SelectedItem + " order by building_id");
+            foreach (DataRow payrow in payDT.Rows)
+            {
+                DataGridViewRow dr3 = new DataGridViewRow();
+                dr3.CreateCells(dataGridView3);
+                dr3.Cells[0].Value = "房费";
+                dr3.Cells[1].Value = DB.selectScalar("select name from gzf_building where id=" + payrow["building_id"]);
+                dr3.Cells[2].Value = payrow["sn"];
+                dr3.Cells[3].Value = DB.selectScalar("select name from gzf_guest where openhouse_id=" + payrow["openhouse_id"]);
+                dr3.Cells[4].Value = payrow["fapiao"];
+                dr3.Cells[5].Value = payrow["pay"];
+                dr3.Cells[6].Value = payrow["cash"];
+                dr3.Cells[7].Value = payrow["credit"];
+                dr3.Cells[8].Value = payrow["other"];
+                dr3.Cells[9].Value = payrow["addtime"];
+                dr3.Cells[10].Value = DB.selectScalar("select username from gzf_user where id=" + payrow["user_id"]);
+                dataGridView3.Rows.Add(dr3);
+            }
+            DataTable powerDT = DB.select("select * from gzf_power power,gzf_house house where power.house_id=house.id and year(power.addtime)=" + comboBoxYear.SelectedItem + " and month(power.addtime)=" + comboBoxMonth.SelectedItem + " and power.status=1" + " order by building_id");
+            foreach (DataRow powerrow in powerDT.Rows)
+            {
+                model.powerType pt = new gzf.model.powerType(Convert.ToInt32(powerrow["type"]));
+                DataGridViewRow dr3 = new DataGridViewRow();
+                dr3.CreateCells(dataGridView3);
+                dr3.Cells[0].Value = pt.Statustxt;
+                dr3.Cells[1].Value = DB.selectScalar("select name from gzf_building where id=" + powerrow["building_id"]);
+                dr3.Cells[2].Value = powerrow["sn"];
+                dr3.Cells[3].Value = DB.selectScalar("select name from gzf_guest where openhouse_id=" + powerrow["openhouse_id"]);
+                dr3.Cells[4].Value = powerrow["fapiao"];
+                dr3.Cells[5].Value = powerrow["price"];
+                if (powerrow["pay_method"].ToString() == "1")
+                {
+                    dr3.Cells[6].Value = powerrow["price"];
+                    dr3.Cells[7].Value = "0";
+                    dr3.Cells[8].Value = "0";
+                }
+                if (powerrow["pay_method"].ToString() == "2")
+                {
+                    dr3.Cells[6].Value = "0";
+                    dr3.Cells[7].Value = powerrow["price"];
+                    dr3.Cells[8].Value = "0";
+                }
+                if (powerrow["pay_method"].ToString() == "3")
+                {
+                    dr3.Cells[6].Value = "0";
+                    dr3.Cells[7].Value = "0";
+                    dr3.Cells[8].Value = powerrow["price"];
+                }
+                dr3.Cells[9].Value = powerrow["addtime"];
+                dr3.Cells[10].Value = DB.selectScalar("select username from gzf_user where id=" + powerrow["user_id"]);
+                dataGridView3.Rows.Add(dr3);
+            }
+            DataTable openDT = DB.select("select * from gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and year(gzf_openhouse.addtime)=" + comboBoxYear.SelectedItem + " and month(gzf_openhouse.addtime)=" + comboBoxMonth.SelectedItem + " order by gzf_openhouse.building_id");
+            foreach (DataRow openrow in openDT.Rows)
+            {
+                DataGridViewRow dr3 = new DataGridViewRow();
+                dr3.CreateCells(dataGridView3);
+                dr3.Cells[0].Value = "押金";
+                dr3.Cells[1].Value = DB.selectScalar("select name from gzf_building where id=" + openrow["building_id"]);
+                dr3.Cells[2].Value = openrow["sn"];
+                dr3.Cells[3].Value = DB.selectScalar("select name from gzf_guest where openhouse_id=" + openrow["id"]);
+                dr3.Cells[4].Value = openrow["deposit_sn"];
+                dr3.Cells[5].Value = openrow["deposit"];
+                dr3.Cells[6].Value = openrow["deposit"];
+                dr3.Cells[7].Value = "0";
+                dr3.Cells[8].Value = "0";
+                dr3.Cells[9].Value = openrow["addtime"];
+                dr3.Cells[10].Value = DB.selectScalar("select username from gzf_user where id=" + openrow["user_id"]);
+                dataGridView3.Rows.Add(dr3);
+            }
         }
 
         private void YingyeMonth_Load(object sender, EventArgs e)
@@ -193,6 +266,11 @@ namespace gzf
         private void button1_Click(object sender, EventArgs e)
         {
             common.ExportForDataGridview(dataGridView2, "sheet1.xls", true);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            common.ExportForDataGridviewTongji2(dataGridView3, "sheet1.xls", true, "F", "缴费金额", "现金", "信用卡", "其他方式");
         }
     }
 }

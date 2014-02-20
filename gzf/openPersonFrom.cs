@@ -63,11 +63,11 @@ namespace gzf
 
         private void btn_Open_Click(object sender, EventArgs e)
         {
-            if (spinEditDeposit.Value == 0)
-            {
-                MessageBox.Show("请填写押金！");
-                return;
-            }
+            //if (spinEditDeposit.Value == 0)
+            //{
+            //    MessageBox.Show("请填写押金！");
+            //    return;
+            //}
             if (txtDipositSN.Text == "")
             {
                 MessageBox.Show("请填写押金单号！");
@@ -399,11 +399,11 @@ namespace gzf
 
         private void btn_xieyi_Click(object sender, EventArgs e)
         {
-            if (spinEditDeposit.Value == 0)
-            {
-                MessageBox.Show("请填写押金！");
-                return;
-            }
+            //if (spinEditDeposit.Value == 0)
+            //{
+            //    MessageBox.Show("请填写押金！");
+            //    return;
+            //}
             if (txtFapiao.Text == "")
             {
                 MessageBox.Show("请填写发票号！");
