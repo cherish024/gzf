@@ -79,26 +79,26 @@ namespace gzf
             lblPayDay.Text = dayall;
 
             lblTotal.Text = (Convert.ToInt32(powerfei) + Convert.ToInt32(fangfei)).ToString();
-            List<int> list = new List<int>();
-            string idStr = "";
-            if (openhouse.Is_team == 0)
-            {
-                list.Add(openhouse.House_id);
-            }
-            else
-            {
-                list.Add(openhouse.House_id);
-                DataTable dt = DB.select("select house_id from gzf_teamopenhouse where openhouse_id=" + openhouse.Id);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    list.Add(Convert.ToInt32(dr["house_id"]));
-                }
-            }
-            foreach (int i in list)
-            {
-                idStr += i.ToString() + ",";
-            }
-            idStr = idStr.Remove(idStr.Length - 1, 1);
+            //List<int> list = new List<int>();
+            //string idStr = "";
+            //if (openhouse.Is_team == 0)
+            //{
+            //    list.Add(openhouse.House_id);
+            //}
+            //else
+            //{
+            //    list.Add(openhouse.House_id);
+            //    DataTable dt = DB.select("select house_id from gzf_teamopenhouse where openhouse_id=" + openhouse.Id);
+            //    foreach (DataRow dr in dt.Rows)
+            //    {
+            //        list.Add(Convert.ToInt32(dr["house_id"]));
+            //    }
+            //}
+            //foreach (int i in list)
+            //{
+            //    idStr += i.ToString() + ",";
+            //}
+            //idStr = idStr.Remove(idStr.Length - 1, 1);
             dataPayment.DataSource = DB.select("select * from gzf_payment,gzf_house where gzf_payment.house_id=gzf_house.id and openhouse_id=" + openhouse.Id);
             if (dataPayment.RowCount > 0) {
                 dataPayment.MultiSelect = false;
@@ -152,7 +152,10 @@ namespace gzf
                         
 
                     }
-                    lblsn.Text = lblsn.Text.Substring(0, 50);
+                    if (lblsn.Text.Length > 50)
+                    {
+                        lblsn.Text = lblsn.Text.Substring(0, 50);
+                    }
                 }
             }
             crystalReportViewer1_Click(sender, new EventArgs());

@@ -468,6 +468,22 @@
       <DependentUpon>YingyeYearForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="tongjiDayForm.resx">
+      <DependentUpon>tongjiDayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiMonth.resx">
+      <DependentUpon>tongjiMonth.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiMonth.sr-Cyrl-CS.resx">
+      <DependentUpon>tongjiMonth.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tongjiYearForm.resx">
+      <DependentUpon>tongjiYearForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -601,6 +617,24 @@
     </Compile>
     <Compile Include="YingyeYearForm.Designer.cs">
       <DependentUpon>YingyeYearForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiDayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiDayForm.Designer.cs">
+      <DependentUpon>tongjiDayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiMonth.Designer.cs">
+      <DependentUpon>tongjiMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tongjiYearForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tongjiYearForm.Designer.cs">
+      <DependentUpon>tongjiYearForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

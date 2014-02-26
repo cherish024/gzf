@@ -947,10 +947,15 @@
             0});
             this.txtPay.Location = new System.Drawing.Point(245, 6);
             this.txtPay.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            -727379969,
+            232,
             0,
             0});
+            this.txtPay.Minimum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            -2147483648});
             this.txtPay.Name = "txtPay";
             this.txtPay.Size = new System.Drawing.Size(85, 21);
             this.txtPay.TabIndex = 38;

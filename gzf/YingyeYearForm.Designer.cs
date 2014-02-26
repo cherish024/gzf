@@ -450,7 +450,6 @@
             this.lblPercent.Size = new System.Drawing.Size(11, 12);
             this.lblPercent.TabIndex = 11;
             this.lblPercent.Text = "0";
-            this.lblPercent.Visible = false;
             // 
             // lblStayCount
             // 
@@ -461,7 +460,6 @@
             this.lblStayCount.Size = new System.Drawing.Size(11, 12);
             this.lblStayCount.TabIndex = 10;
             this.lblStayCount.Text = "0";
-            this.lblStayCount.Visible = false;
             // 
             // lblZDCount
             // 
@@ -512,7 +510,6 @@
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 6;
             this.label6.Text = "入住比例：";
-            this.label6.Visible = false;
             // 
             // label3
             // 
@@ -533,7 +530,6 @@
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 5;
             this.label5.Text = "入住数量：";
-            this.label5.Visible = false;
             // 
             // label4
             // 

@@ -51,7 +51,7 @@ namespace gzf
             lblTv.Text = tv;
             lblGas.Text = gas;
             lblHot.Text = hot;
-            lblTotal.Text = (openhouse.Deposit + numericUpDown1.Value - Convert.ToInt32(powerTotal)).ToString();
+            lblTotal.Text = (openhouse.Deposit + numericUpDown1.Value).ToString();
         }
 
         private void btn_jz_Click(object sender, EventArgs e)
@@ -68,10 +68,11 @@ namespace gzf
             
             if (openhouse.Is_team > 0)
             {
-                DataTable dt = DB.select("select house_id from gzf_openhouse where is_team=" + openhouse.Id + "and is_jiezhang=0 and id!=" + openhouse.Id);
+                DataTable dt = DB.select("select house_id,id,main_guest_id from gzf_openhouse where is_team=" + openhouse.Id + "and is_jiezhang=0 and id!=" + openhouse.Id);
                 foreach (DataRow dr in dt.Rows)
                 {
                     DB.exec_NonQuery("update gzf_house set status=2 where id=" + dr["house_id"]);
+                    DB.exec_NonQuery("insert into gzf_zd (sn,openhouse_id,guest_id,shui_price,dian_price,house_price,is_team,total_price,user_id,refund) values ('" + zdsn + "'," + dr["id"] + "," + dr["main_guest_id"] + "," + shui + "," + dian + "," + houseTotal + "," + openhouse.Is_team + "," + total + "," + common.User.id + "," + lblTotal.Text + ")");
                 }
             }
             DB.exec_NonQuery("insert into gzf_zd (sn,openhouse_id,guest_id,shui_price,dian_price,house_price,is_team,total_price,user_id,refund) values ('" + zdsn + "'," + openhouse.Id + "," + openhouse.Main_guest_id + "," + shui + "," + dian + "," + houseTotal + "," + openhouse.Is_team + "," + total + "," + common.User.id + "," + lblTotal.Text + ")");
@@ -82,7 +83,7 @@ namespace gzf
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            lblTotal.Text = (openhouse.Deposit + numericUpDown1.Value - Convert.ToInt32(powerTotal) + Convert.ToInt32(tv)).ToString();
+            lblTotal.Text = (openhouse.Deposit + numericUpDown1.Value).ToString();
         }
 
 

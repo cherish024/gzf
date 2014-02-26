@@ -39,7 +39,7 @@ namespace gzf
                 dr.Cells[0].Value = dateTimePicker1.Value.AddDays(i).ToString("yyyy-MM-dd");
                 dr.Cells[1].Value = DB.selectScalar("select count(*) from gzf_openhouse where convert(varchar(10),addtime,120)='" + dr.Cells[0].Value + "'");
                 dr.Cells[2].Value = Convert.ToInt32(houseCount) - Convert.ToInt32(count);
-                dr.Cells[3].Value = DB.selectScalar("select count(*) from gzf_house,gzf_openhouse where gzf_openhouse.house_id=gzf_house.id and '" + dr.Cells[0].Value + "' between gzf_openhouse.addtime and end_time and (select count(*) from gzf_zd where gzf_zd.openhouse_id=gzf_openhouse.id and '" + dr.Cells[0].Value + "'<gzf_zd.addtime)=0");
+                dr.Cells[3].Value = DB.selectScalar("select count(*) from gzf_openhouse where (select count(*) from gzf_zd where gzf_zd.openhouse_id=gzf_openhouse.id and '" + dr.Cells[0].Value + "'<gzf_zd.addtime)=0");
                 dr.Cells[4].Value = (Convert.ToDouble(dr.Cells[3].Value) / Convert.ToDouble(dr.Cells[2].Value)).ToString("P");
                 num += (Convert.ToDouble(dr.Cells[3].Value) / Convert.ToDouble(dr.Cells[2].Value));
                 dataGridView1.Rows.Add(dr);

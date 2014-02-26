@@ -98,7 +98,7 @@
             this.Column6,
             this.Column7,
             this.Column9});
-            this.dataGridView1.Location = new System.Drawing.Point(39, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(39, 141);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -147,7 +147,7 @@
             // 
             // panelKind
             // 
-            this.panelKind.Location = new System.Drawing.Point(39, 482);
+            this.panelKind.Location = new System.Drawing.Point(39, 80);
             this.panelKind.Name = "panelKind";
             this.panelKind.Size = new System.Drawing.Size(520, 45);
             this.panelKind.TabIndex = 25;
@@ -156,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(500, 468);
+            this.label1.Location = new System.Drawing.Point(500, 517);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 26;
@@ -165,7 +165,7 @@
             // lblNum
             // 
             this.lblNum.AutoSize = true;
-            this.lblNum.Location = new System.Drawing.Point(550, 468);
+            this.lblNum.Location = new System.Drawing.Point(550, 517);
             this.lblNum.Name = "lblNum";
             this.lblNum.Size = new System.Drawing.Size(11, 12);
             this.lblNum.TabIndex = 27;
@@ -220,17 +220,18 @@
             this.chart1.Location = new System.Drawing.Point(585, 47);
             this.chart1.Name = "chart1";
             this.chart1.NoDataLabel.Text = "No Data";
-            this.chart1.Size = new System.Drawing.Size(500, 480);
+            this.chart1.Size = new System.Drawing.Size(611, 480);
             this.chart1.StartDateOfYear = new System.DateTime(((long)(0)));
             this.chart1.StartDayOfWeek = System.DayOfWeek.Monday;
             this.chart1.TabIndex = 28;
             this.chart1.TempDirectory = "C:\\Users\\Cherish\\AppData\\Local\\Temp\\";
+            this.chart1.Use3D = true;
             // 
             // tongjiHouseStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1097, 547);
+            this.ClientSize = new System.Drawing.Size(1233, 547);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.lblNum);
             this.Controls.Add(this.label1);

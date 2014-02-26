@@ -638,7 +638,30 @@ namespace gzf
             spinEditDeposit.Value = spinEditMoney.Value;
         }
 
+        private void openPersonFrom_FormClosing(object sender, FormClosingEventArgs e)
+        {
 
+        }
+
+        protected override void WndProc(ref Message msg)
+        {
+            const int WM_SYSCOMMAND = 0x0112;
+            const int SC_CLOSE = 0xF060;
+
+            if (msg.Msg == WM_SYSCOMMAND && ((int)msg.WParam == SC_CLOSE))
+            {
+                // 点击winform右上关闭按钮 
+                // 加入想要的逻辑处理
+                if (txtName.Text.Trim() != "")
+                {
+                    if (MessageBox.Show("窗口存在开单信息，确认关闭吗?", "确认信息", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+            }
+            base.WndProc(ref msg);
+        }
 
 
 

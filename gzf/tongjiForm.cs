@@ -104,5 +104,23 @@ namespace gzf
                 }
             }
         }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            tongjiDayForm day = new tongjiDayForm();
+            day.ShowDialog();
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            tongjiMonth month = new tongjiMonth();
+            month.ShowDialog();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            tongjiYearForm year = new tongjiYearForm();
+            year.ShowDialog();
+        }
     }
 }

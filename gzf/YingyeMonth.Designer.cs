@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YingyeMonth));
+            dotnetCHARTING.WinForms.Label label20 = new dotnetCHARTING.WinForms.Label();
             dotnetCHARTING.WinForms.Label label21 = new dotnetCHARTING.WinForms.Label();
-            dotnetCHARTING.WinForms.Label label22 = new dotnetCHARTING.WinForms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblPowerTotal = new System.Windows.Forms.Label();
@@ -446,7 +446,7 @@
             this.chart2.DataGrid = null;
             this.chart2.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart2.DefaultElement.ShowValue = true;
-            this.chart2.LabelChart = label21;
+            this.chart2.LabelChart = label20;
             resources.ApplyResources(this.chart2, "chart2");
             this.chart2.Name = "chart2";
             this.chart2.NoDataLabel.Text = "No Data";
@@ -502,7 +502,7 @@
             this.chart1.DataGrid = null;
             this.chart1.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart1.DefaultElement.ShowValue = true;
-            this.chart1.LabelChart = label22;
+            this.chart1.LabelChart = label21;
             resources.ApplyResources(this.chart1, "chart1");
             this.chart1.Name = "chart1";
             this.chart1.NoDataLabel.Text = "No Data";

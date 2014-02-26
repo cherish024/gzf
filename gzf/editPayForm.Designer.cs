@@ -82,6 +82,11 @@
             2,
             0,
             0});
+            this.txtPay.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.txtPay.Name = "txtPay";
             this.txtPay.Size = new System.Drawing.Size(120, 21);
             this.txtPay.TabIndex = 3;
@@ -107,6 +112,11 @@
             // txtPayMonth
             // 
             this.txtPayMonth.Location = new System.Drawing.Point(150, 46);
+            this.txtPayMonth.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.txtPayMonth.Name = "txtPayMonth";
             this.txtPayMonth.Size = new System.Drawing.Size(120, 21);
             this.txtPayMonth.TabIndex = 7;
@@ -114,6 +124,11 @@
             // txtDay
             // 
             this.txtDay.Location = new System.Drawing.Point(150, 89);
+            this.txtDay.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.txtDay.Name = "txtDay";
             this.txtDay.Size = new System.Drawing.Size(120, 21);
             this.txtDay.TabIndex = 9;
@@ -183,6 +198,11 @@
             2,
             0,
             0});
+            this.spinEditOther.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditOther.Name = "spinEditOther";
             this.spinEditOther.Size = new System.Drawing.Size(65, 21);
             this.spinEditOther.TabIndex = 114;
@@ -195,6 +215,11 @@
             2,
             0,
             0});
+            this.spinEditCride.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditCride.Name = "spinEditCride";
             this.spinEditCride.Size = new System.Drawing.Size(65, 21);
             this.spinEditCride.TabIndex = 113;
@@ -207,6 +232,11 @@
             2,
             0,
             0});
+            this.spinEditCash.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditCash.Name = "spinEditCash";
             this.spinEditCash.Size = new System.Drawing.Size(65, 21);
             this.spinEditCash.TabIndex = 112;

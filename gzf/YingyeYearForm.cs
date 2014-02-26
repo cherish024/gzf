@@ -33,10 +33,12 @@ namespace gzf
             string countJian = configXml["config"]["Tongji"].InnerText;
             string countOpenTotal = DB.selectScalar("select count(*) from gzf_openhouse where year(addtime)=" + comboBoxYear.SelectedItem);
             string countCloseTotal = DB.selectScalar("select count(*) from gzf_openhouse,gzf_zd where year(gzf_zd.addtime)=" + comboBoxYear.SelectedItem + " and gzf_zd.openhouse_id=gzf_openhouse.id");
-
+            string date = Convert.ToDateTime(comboBoxYear.SelectedItem + "-12-31").ToString("yyyy-MM-dd");
             lblOpenCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where year(addtime)=" + comboBoxYear.SelectedItem);
-            lblHouseCount.Text = (Convert.ToInt32(DB.selectScalar("select count(*) from gzf_house")) - Convert.ToInt32(countJian)).ToString();
+            lblHouseCount.Text = (Convert.ToInt32(DB.selectScalar("select count(*) from gzf_house where building_id!=2 and building_id!=4 and building_id!=5 and building_id!=6 and building_id!=7 and building_id!=8 and building_id!=12 and building_id!=20")) - Convert.ToInt32(countJian)).ToString();
             lblZDCount.Text = DB.selectScalar("select count(*) from gzf_zd where year(addtime)=" + comboBoxYear.SelectedItem);
+            lblStayCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where (select count(*) from gzf_zd where gzf_zd.openhouse_id=gzf_openhouse.id and '" + date + "'>gzf_zd.addtime)=0" + " and gzf_openhouse.kind !=3 and gzf_openhouse.kind !=4 and gzf_openhouse.kind !=5 and gzf_openhouse.building_id!=2 and gzf_openhouse.building_id!=4 and gzf_openhouse.building_id!=5 and gzf_openhouse.building_id!=6 and gzf_openhouse.building_id!=7 and gzf_openhouse.building_id!=8 and gzf_openhouse.building_id!=12 and gzf_openhouse.building_id!=20");
+            lblPercent.Text = (Convert.ToDouble(lblStayCount.Text) / Convert.ToDouble(lblHouseCount.Text)).ToString("P");
             lblWater.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=0 and status=1");
             lblDian.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=1 and status=1");
             lbltv.Text = DB.selectScalar("select sum(price) from gzf_power where year(addtime)=" + comboBoxYear.SelectedItem + " and type=2 and status=1");

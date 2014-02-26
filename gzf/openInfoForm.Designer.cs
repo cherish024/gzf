@@ -119,10 +119,15 @@
             0});
             this.spinEditMoney.Location = new System.Drawing.Point(99, 187);
             this.spinEditMoney.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1410065407,
+            2,
             0,
             0});
+            this.spinEditMoney.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditMoney.Name = "spinEditMoney";
             this.spinEditMoney.Size = new System.Drawing.Size(102, 21);
             this.spinEditMoney.TabIndex = 35;
@@ -154,10 +159,15 @@
             0});
             this.spinEditDeposit.Location = new System.Drawing.Point(99, 138);
             this.spinEditDeposit.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1410065407,
+            2,
             0,
             0});
+            this.spinEditDeposit.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditDeposit.Name = "spinEditDeposit";
             this.spinEditDeposit.Size = new System.Drawing.Size(102, 21);
             this.spinEditDeposit.TabIndex = 34;

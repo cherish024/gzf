@@ -251,6 +251,11 @@
             2,
             0,
             0});
+            this.spinEditMoney.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditMoney.Name = "spinEditMoney";
             this.spinEditMoney.Size = new System.Drawing.Size(102, 21);
             this.spinEditMoney.TabIndex = 7;
@@ -265,10 +270,15 @@
             0});
             this.spinEditDeposit.Location = new System.Drawing.Point(82, 155);
             this.spinEditDeposit.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1410065407,
+            2,
             0,
             0});
+            this.spinEditDeposit.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditDeposit.Name = "spinEditDeposit";
             this.spinEditDeposit.Size = new System.Drawing.Size(102, 21);
             this.spinEditDeposit.TabIndex = 5;
@@ -531,6 +541,11 @@
             2,
             0,
             0});
+            this.spinEditOther.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditOther.Name = "spinEditOther";
             this.spinEditOther.Size = new System.Drawing.Size(65, 21);
             this.spinEditOther.TabIndex = 105;
@@ -543,6 +558,11 @@
             2,
             0,
             0});
+            this.spinEditCride.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditCride.Name = "spinEditCride";
             this.spinEditCride.Size = new System.Drawing.Size(65, 21);
             this.spinEditCride.TabIndex = 103;
@@ -555,6 +575,11 @@
             2,
             0,
             0});
+            this.spinEditCash.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
             this.spinEditCash.Name = "spinEditCash";
             this.spinEditCash.Size = new System.Drawing.Size(65, 21);
             this.spinEditCash.TabIndex = 101;
@@ -1237,6 +1262,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "个人开单";
             this.Load += new System.EventHandler(this.openPersonFrom_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.openPersonFrom_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.payMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditMoney)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditDeposit)).EndInit();

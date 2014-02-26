@@ -45,6 +45,9 @@
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,8 +97,8 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -152,6 +155,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.simpleButton2);
+            this.tabPage2.Controls.Add(this.simpleButton6);
+            this.tabPage2.Controls.Add(this.simpleButton7);
             this.tabPage2.Controls.Add(this.btn_houseStatus);
             this.tabPage2.Controls.Add(this.btn_stayPercent);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -165,7 +171,7 @@
             // btn_houseStatus
             // 
             this.btn_houseStatus.Image = ((System.Drawing.Image)(resources.GetObject("btn_houseStatus.Image")));
-            this.btn_houseStatus.Location = new System.Drawing.Point(46, 31);
+            this.btn_houseStatus.Location = new System.Drawing.Point(42, 125);
             this.btn_houseStatus.Name = "btn_houseStatus";
             this.btn_houseStatus.Size = new System.Drawing.Size(145, 57);
             this.btn_houseStatus.TabIndex = 2;
@@ -175,11 +181,12 @@
             // btn_stayPercent
             // 
             this.btn_stayPercent.Image = ((System.Drawing.Image)(resources.GetObject("btn_stayPercent.Image")));
-            this.btn_stayPercent.Location = new System.Drawing.Point(251, 31);
+            this.btn_stayPercent.Location = new System.Drawing.Point(459, 228);
             this.btn_stayPercent.Name = "btn_stayPercent";
             this.btn_stayPercent.Size = new System.Drawing.Size(145, 57);
             this.btn_stayPercent.TabIndex = 1;
             this.btn_stayPercent.Text = "入住率统计";
+            this.btn_stayPercent.Visible = false;
             this.btn_stayPercent.Click += new System.EventHandler(this.btn_stayPercent_Click);
             // 
             // tabPage3
@@ -224,6 +231,36 @@
             this.simpleButton3.Text = "日营业分析";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(442, 31);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(145, 57);
+            this.simpleButton2.TabIndex = 7;
+            this.simpleButton2.Text = "年营业统计";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.Image")));
+            this.simpleButton6.Location = new System.Drawing.Point(244, 31);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(145, 57);
+            this.simpleButton6.TabIndex = 6;
+            this.simpleButton6.Text = "月营业统计";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
+            // 
+            // simpleButton7
+            // 
+            this.simpleButton7.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton7.Image")));
+            this.simpleButton7.Location = new System.Drawing.Point(42, 31);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(145, 57);
+            this.simpleButton7.TabIndex = 5;
+            this.simpleButton7.Text = "日营业统计";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+            // 
             // tongjiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -264,5 +301,8 @@
         private DevExpress.XtraEditors.SimpleButton btn_yajing;
         private DevExpress.XtraEditors.SimpleButton btn_fapiao;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
     }
 }

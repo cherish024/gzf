@@ -13,6 +13,7 @@ namespace gzf
     public partial class tongjiHouseStatusForm : Form
     {
         SeriesCollection SC = new SeriesCollection();
+        //Series s = new Series();
         public tongjiHouseStatusForm()
         {
             InitializeComponent();
@@ -58,6 +59,7 @@ namespace gzf
         private void btn_search_Click(object sender, EventArgs e)
         {
             SC.Clear();
+            Series s = new Series();
             string buildingQuery = "";
             if (comboBoxBuilding.SelectedIndex != 0)
             { 
@@ -87,16 +89,15 @@ namespace gzf
                     panelKind.Controls.Add(lbl);
                     x += lbl.Size.Width + 6;
                     //填充拼图元素
-                    Series s = new Series();
-                    s.Name = de.Value.ToString();
                     Element el = new Element();
                     // 每元素的名称
                     el.Name = de.Value.ToString();
                     // 每元素的大小数值
                     el.YValue = Convert.ToInt32(count);
                     s.Elements.Add(el);
-                    SC.Add(s);
                 }
+                s.Name = "房屋类型图";
+                SC.Add(s);
                 panelKind.Visible = true;
                 //加载饼图
                 //chart1.YAxis.Percent = true;
@@ -104,6 +105,7 @@ namespace gzf
                 chart1.DefaultElement.SmartLabel.Text = "<%PercentOfTotal,0.00>";
                 chart1.SeriesCollection.Clear();
                 chart1.SeriesCollection.Add(SC);
+                //chart1.XAxis.StaticColumnWidth = 900;
                 chart1.Refresh();
             }
             else

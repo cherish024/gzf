@@ -222,7 +222,7 @@ namespace gzf
             //加载统计信息
             model.HouseStatus housestatus = new gzf.model.HouseStatus(1);
             x = 20;
-            y = 30;
+            y = 25;
             groupBox1.Controls.Clear();
             foreach (DictionaryEntry de in housestatus.statusTable)
             {
@@ -235,7 +235,7 @@ namespace gzf
                 lbl.Text = de.Value.ToString() + "：" + count;
                 lbl.Location = new Point(x, y);
                 groupBox1.Controls.Add(lbl);
-                y += lbl.Size.Height + 2;
+                y += lbl.Size.Height + 1;
             }
             model.OpenHouseKind kind = new gzf.model.OpenHouseKind(1);
             foreach (DictionaryEntry de in kind.statusTable)
@@ -246,28 +246,38 @@ namespace gzf
                 lbl.Text = de.Value.ToString() + "：" + count;
                 lbl.Location = new Point(x, y);
                 groupBox1.Controls.Add(lbl);
-                y += lbl.Size.Height + 2;
+                y += lbl.Size.Height + 1;
             }
 
-            string count1 = DB.selectScalar("select count(*) from gzf_guest,gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and is_jiezhang=0 and gzf_guest.openhouse_id=gzf_openhouse.id" + " and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE gzf_openhouse.building_id=" + tab.Tag + " and is_jiezhang=0 group by house_id)");
+            string count1 = DB.selectScalar("select count(*) from gzf_house where building_id=" + tab.Tag);
             Label lbl1 = new Label();
+            lbl1.Width = 140;
+            lbl1.Text = "该楼共有房屋" + "：" + count1;
+            lbl1.Location = new Point(x, y);
+            groupBox1.Controls.Add(lbl1);
+            y += lbl1.Size.Height + 1;
+
+            count1 = DB.selectScalar("select count(*) from gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE gzf_openhouse.building_id=" + tab.Tag + " and is_jiezhang=0 group by house_id)");
+            lbl1 = new Label();
+            lbl1.Width = 140;
+            lbl1.Text = "该楼已入住房屋" + "：" + count1;
+            lbl1.Location = new Point(x, y);
+            groupBox1.Controls.Add(lbl1);
+            y += lbl1.Size.Height + 1;
+
+            count1 = DB.selectScalar("select count(*) from gzf_guest,gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and is_jiezhang=0 and gzf_guest.openhouse_id=gzf_openhouse.id" + " and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE gzf_openhouse.building_id=" + tab.Tag + " and is_jiezhang=0 group by house_id)");
+            lbl1 = new Label();
             lbl1.Width = 140;
             lbl1.Text = "该楼住宿人数" + "：" + count1;
             lbl1.Location = new Point(x, y);
             groupBox1.Controls.Add(lbl1);
-            y += lbl1.Size.Height + 2;
+            y += lbl1.Size.Height + 1;
 
-            count1 = DB.selectScalar("select count(*) from gzf_guest,gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and is_jiezhang=0 and gzf_guest.openhouse_id=gzf_openhouse.id" + " and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE is_jiezhang=0 group by house_id)");
-            lbl1 = new Label();
-            lbl1.Width = 140;
-            lbl1.Text = "全园区住宿人数" + "：" + count1;
-            lbl1.Location = new Point(x, y);
-            groupBox1.Controls.Add(lbl1);
-            y += lbl1.Size.Height + 2;
+
 
             //能源信息
             x = 20;
-            y = 30;
+            y = 25;
             groupBox3.Controls.Clear();
             model.powerType power = new gzf.model.powerType(0);
             foreach (DictionaryEntry de in power.statusTable)
@@ -279,7 +289,7 @@ namespace gzf
                 lbl.Text = de.Value.ToString() + "：" + count + "元";
                 lbl.Location = new Point(x, y);
                 groupBox3.Controls.Add(lbl);
-                y += lbl.Size.Height + 2;
+                y += lbl.Size.Height + 1;
             }
 
         }
