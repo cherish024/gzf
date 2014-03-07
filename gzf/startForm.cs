@@ -199,6 +199,13 @@ namespace gzf
                     DB.exec_NonQuery("ALTER TABLE gzf_power ADD status INT");
                     DB.exec_NonQuery("update gzf_power set status=1");
                 }
+                //添加房屋是否靠近厨房字段
+                string near = DB.selectScalar("select name from syscolumns where name='near_kitchen' and id=object_id('gzf_house')");
+                if (near.Trim() == "")
+                {
+                    DB.exec_NonQuery("ALTER TABLE gzf_house ADD near_kitchen INT");
+                    DB.exec_NonQuery("update gzf_house set near_kitchen=0");
+                }
                 //数据库升级结束
                 if (chkUsername.Checked)
                 {

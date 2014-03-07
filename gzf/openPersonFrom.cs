@@ -144,9 +144,9 @@ namespace gzf
             Byte[] bytes = new Byte[0];
             //if (lblStatus.Text == "读卡成功！")
             //{
-            string path = Path.GetTempFileName() + ".bmp";
+            string path = Path.GetTempFileName();
             FileStream fs;
-            if (result != 0)
+            if (result == 0)
             {
                 Bitmap bitmap1 = new Bitmap(pictureBox1.Image);
                 bitmap1.Save(path);
@@ -171,9 +171,9 @@ namespace gzf
                 if (txtIDCard2.Text.Trim() != "" && txtName2.Text.Trim() !="")
                 {
                     //读取头像
-                    string path2 = Path.GetTempFileName() + ".bmp";
-                    Bitmap bitmap = new Bitmap(pictureBox2.Image);
-                    bitmap.Save(path2);
+                    string path2 = Path.GetTempFileName();
+                    Bitmap bitmap2 = new Bitmap(pictureBox2.Image);
+                    bitmap2.Save(path2);
                     FileStream fs2 = new FileStream(path2, FileMode.Open, FileAccess.Read);
                     Byte[] bytes2 = new Byte[fs2.Length];
                     fs2.Read(bytes2, 0, bytes2.Length);
@@ -284,7 +284,7 @@ namespace gzf
             int OpenResult = Card2.OpenCardReader(0, 0x04, 115200);
             if (OpenResult == 0)
             {
-                imagePath = Path.GetTempPath() + "images.bmp";
+                imagePath = Path.GetTempFileName() + ".bmp";
                 lblStatus.Text = "身份证读卡器已就绪...";
                 try
                 {
@@ -331,7 +331,7 @@ namespace gzf
             int OpenResult = Card2.OpenCardReader(0, 0x04, 115200);
             if (OpenResult == 0)
             {
-                imagePath = Path.GetTempPath() + "images2.bmp";
+                imagePath = Path.GetTempFileName() + ".bmp";
                 lblStatus2.Text = "身份证读卡器已就绪...";
                 try
                 {

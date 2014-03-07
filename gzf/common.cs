@@ -44,7 +44,8 @@ namespace gzf
             }
             else
             {
-                return DB.selectScalar("select top 1 openhouse_id from gzf_teamopenhouse where house_id=" + house_id + " order by id desc");
+                //return DB.selectScalar("select top 1 openhouse_id from gzf_teamopenhouse where house_id=" + house_id + " order by id desc");
+                return "";
             }
         }
 

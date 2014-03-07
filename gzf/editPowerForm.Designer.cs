@@ -42,6 +42,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxPayMethod = new System.Windows.Forms.ComboBox();
+            this.txtFapiao = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDay)).BeginInit();
@@ -50,7 +54,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 46);
+            this.label6.Location = new System.Drawing.Point(59, 41);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 22;
@@ -58,7 +62,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(108, 330);
+            this.btn_save.Location = new System.Drawing.Point(106, 406);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(85, 27);
             this.btn_save.TabIndex = 26;
@@ -72,14 +76,14 @@
             0,
             0,
             0});
-            this.txtPay.Location = new System.Drawing.Point(132, 41);
+            this.txtPay.Location = new System.Drawing.Point(130, 37);
             this.txtPay.Name = "txtPay";
             this.txtPay.Size = new System.Drawing.Size(103, 21);
             this.txtPay.TabIndex = 27;
             // 
             // txtMonth
             // 
-            this.txtMonth.Location = new System.Drawing.Point(132, 80);
+            this.txtMonth.Location = new System.Drawing.Point(130, 80);
             this.txtMonth.Name = "txtMonth";
             this.txtMonth.Size = new System.Drawing.Size(103, 21);
             this.txtMonth.TabIndex = 29;
@@ -87,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 85);
+            this.label1.Location = new System.Drawing.Point(59, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 28;
@@ -95,7 +99,7 @@
             // 
             // txtDay
             // 
-            this.txtDay.Location = new System.Drawing.Point(132, 122);
+            this.txtDay.Location = new System.Drawing.Point(130, 123);
             this.txtDay.Name = "txtDay";
             this.txtDay.Size = new System.Drawing.Size(103, 21);
             this.txtDay.TabIndex = 31;
@@ -103,7 +107,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 125);
+            this.label2.Location = new System.Drawing.Point(59, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 30;
@@ -111,7 +115,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(132, 264);
+            this.dateTimePicker2.Location = new System.Drawing.Point(130, 294);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(103, 21);
             this.dateTimePicker2.TabIndex = 56;
@@ -119,7 +123,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(61, 270);
+            this.label23.Location = new System.Drawing.Point(59, 298);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(65, 12);
             this.label23.TabIndex = 55;
@@ -127,7 +131,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(132, 223);
+            this.dateTimePicker1.Location = new System.Drawing.Point(130, 251);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(103, 21);
             this.dateTimePicker1.TabIndex = 54;
@@ -135,7 +139,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(61, 229);
+            this.label21.Location = new System.Drawing.Point(59, 255);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 12);
             this.label21.TabIndex = 53;
@@ -144,7 +148,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 176);
+            this.label3.Location = new System.Drawing.Point(59, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 57;
@@ -158,16 +162,52 @@
             "现金",
             "信用卡",
             "其它方式"});
-            this.comboBoxPayMethod.Location = new System.Drawing.Point(132, 172);
+            this.comboBoxPayMethod.Location = new System.Drawing.Point(130, 166);
             this.comboBoxPayMethod.Name = "comboBoxPayMethod";
             this.comboBoxPayMethod.Size = new System.Drawing.Size(103, 20);
             this.comboBoxPayMethod.TabIndex = 67;
+            // 
+            // txtFapiao
+            // 
+            this.txtFapiao.Location = new System.Drawing.Point(130, 208);
+            this.txtFapiao.Name = "txtFapiao";
+            this.txtFapiao.Size = new System.Drawing.Size(103, 21);
+            this.txtFapiao.TabIndex = 69;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(59, 212);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 68;
+            this.label4.Text = "发票号码：";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(130, 340);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(103, 21);
+            this.dateTimePicker3.TabIndex = 123;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(59, 344);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.TabIndex = 122;
+            this.label9.Text = "缴费时间：";
             // 
             // editPowerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 403);
+            this.ClientSize = new System.Drawing.Size(308, 473);
+            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtFapiao);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBoxPayMethod);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePicker2);
@@ -212,5 +252,9 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxPayMethod;
+        private System.Windows.Forms.TextBox txtFapiao;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label9;
     }
 }

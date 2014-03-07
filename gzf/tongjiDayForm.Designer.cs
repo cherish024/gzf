@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             dotnetCHARTING.WinForms.Label label9 = new dotnetCHARTING.WinForms.Label();
-            dotnetCHARTING.WinForms.Label label10 = new dotnetCHARTING.WinForms.Label();
+            dotnetCHARTING.WinForms.Label label12 = new dotnetCHARTING.WinForms.Label();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tongjiDayForm));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,6 +39,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblKechuzu = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblPercent = new System.Windows.Forms.Label();
             this.lblStayCount = new System.Windows.Forms.Label();
             this.lblZDCount = new System.Windows.Forms.Label();
@@ -55,8 +57,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblPeople = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblKechuzu = new System.Windows.Forms.Label();
+            this.lblBuke = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -83,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 79);
+            this.label2.Location = new System.Drawing.Point(153, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 2;
@@ -92,7 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(320, 79);
+            this.label3.Location = new System.Drawing.Point(290, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 3;
@@ -110,7 +112,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 36);
+            this.label5.Location = new System.Drawing.Point(290, 36);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 5;
@@ -119,7 +121,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(320, 36);
+            this.label6.Location = new System.Drawing.Point(406, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 6;
@@ -127,6 +129,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblBuke);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.lblKechuzu);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lblPercent);
@@ -146,10 +150,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "房屋统计";
             // 
+            // lblKechuzu
+            // 
+            this.lblKechuzu.AutoSize = true;
+            this.lblKechuzu.Location = new System.Drawing.Point(101, 79);
+            this.lblKechuzu.Name = "lblKechuzu";
+            this.lblKechuzu.Size = new System.Drawing.Size(11, 12);
+            this.lblKechuzu.TabIndex = 13;
+            this.lblKechuzu.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(28, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 12);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "可出租数量：";
+            // 
             // lblPercent
             // 
             this.lblPercent.AutoSize = true;
-            this.lblPercent.Location = new System.Drawing.Point(381, 36);
+            this.lblPercent.Location = new System.Drawing.Point(467, 36);
             this.lblPercent.Name = "lblPercent";
             this.lblPercent.Size = new System.Drawing.Size(11, 12);
             this.lblPercent.TabIndex = 11;
@@ -158,7 +180,7 @@
             // lblStayCount
             // 
             this.lblStayCount.AutoSize = true;
-            this.lblStayCount.Location = new System.Drawing.Point(242, 36);
+            this.lblStayCount.Location = new System.Drawing.Point(353, 36);
             this.lblStayCount.Name = "lblStayCount";
             this.lblStayCount.Size = new System.Drawing.Size(11, 12);
             this.lblStayCount.TabIndex = 10;
@@ -167,7 +189,7 @@
             // lblZDCount
             // 
             this.lblZDCount.AutoSize = true;
-            this.lblZDCount.Location = new System.Drawing.Point(381, 79);
+            this.lblZDCount.Location = new System.Drawing.Point(351, 79);
             this.lblZDCount.Name = "lblZDCount";
             this.lblZDCount.Size = new System.Drawing.Size(11, 12);
             this.lblZDCount.TabIndex = 9;
@@ -185,7 +207,7 @@
             // lblOpenCount
             // 
             this.lblOpenCount.AutoSize = true;
-            this.lblOpenCount.Location = new System.Drawing.Point(240, 79);
+            this.lblOpenCount.Location = new System.Drawing.Point(214, 79);
             this.lblOpenCount.Name = "lblOpenCount";
             this.lblOpenCount.Size = new System.Drawing.Size(11, 12);
             this.lblOpenCount.TabIndex = 7;
@@ -351,7 +373,7 @@
             this.chart2.DataGrid = null;
             this.chart2.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart2.DefaultElement.ShowValue = true;
-            this.chart2.LabelChart = label10;
+            this.chart2.LabelChart = label12;
             this.chart2.Location = new System.Drawing.Point(621, 345);
             this.chart2.Name = "chart2";
             this.chart2.NoDataLabel.Text = "No Data";
@@ -392,23 +414,23 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "总入住人数：";
             // 
-            // label7
+            // lblBuke
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 12);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "可出租数量：";
+            this.lblBuke.AutoSize = true;
+            this.lblBuke.Location = new System.Drawing.Point(237, 36);
+            this.lblBuke.Name = "lblBuke";
+            this.lblBuke.Size = new System.Drawing.Size(11, 12);
+            this.lblBuke.TabIndex = 15;
+            this.lblBuke.Text = "0";
             // 
-            // lblKechuzu
+            // label10
             // 
-            this.lblKechuzu.AutoSize = true;
-            this.lblKechuzu.Location = new System.Drawing.Point(101, 79);
-            this.lblKechuzu.Name = "lblKechuzu";
-            this.lblKechuzu.Size = new System.Drawing.Size(11, 12);
-            this.lblKechuzu.TabIndex = 13;
-            this.lblKechuzu.Text = "0";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(153, 36);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 12);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "不可出租数量：";
             // 
             // tongjiDayForm
             // 
@@ -474,5 +496,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblKechuzu;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblBuke;
+        private System.Windows.Forms.Label label10;
     }
 }

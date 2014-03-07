@@ -33,6 +33,7 @@ namespace gzf
             this.house.sn = dt.Rows[0]["sn"].ToString();
             this.house.status = Convert.ToInt32(dt.Rows[0]["status"]);
             this.house.Position = Convert.ToInt32(dt.Rows[0]["position"]);
+            this.house.Near_kitchen = Convert.ToInt32(dt.Rows[0]["near_kitchen"]);
             int status = house.status;
             if (status == 0 || status == 6)
             {
@@ -282,6 +283,11 @@ namespace gzf
                     break;
                 case 1:
                     g.FillRectangle(Brushes.Red, 0, 0, 73, 15);
+                    if (this.house.Near_kitchen == 1)
+                    {
+                        g.FillRectangle(Brushes.Red, 0, 0, 37, 15);
+                        g.FillRectangle(Brushes.Green, 37, 0, 36, 15);
+                    }
                     g.DrawString("租金：" + house.price, font, Brushes.Black, new PointF(4, 36));
                     g.DrawString(hs.Statustxt, font, Brushes.White, new PointF(15, 19));
                     break;
@@ -299,7 +305,7 @@ namespace gzf
                     g.DrawString(hs.Statustxt, font, Brushes.White, new PointF(15, 19));
                     break;
                 case 5:
-                    g.FillRectangle(Brushes.Orange, 0, 0, 73, 15);
+                    g.FillRectangle(Brushes.Chocolate, 0, 0, 73, 15);
                     g.DrawString(hs.Statustxt, font, Brushes.White, new PointF(15, 19));
                     break;
                 case 6:

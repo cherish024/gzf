@@ -32,7 +32,7 @@ namespace gzf
             lblOpenCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where convert(varchar(10),addtime,120)='" + date + "'");
             lblHouseCount.Text = (Convert.ToInt32(DB.selectScalar("select count(*) from gzf_house where building_id!=2 and building_id!=4 and building_id!=5 and building_id!=6 and building_id!=7 and building_id!=8 and building_id!=12 and building_id!=20")) - Convert.ToInt32(countJian)).ToString();
             lblZDCount.Text = DB.selectScalar("select count(*) from gzf_zd where convert(varchar(10),addtime,120)='" + date + "'");
-            lblStayCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where (select count(*) from gzf_zd where gzf_zd.openhouse_id=gzf_openhouse.id and '" + date + "'>gzf_zd.addtime)=0" + " and gzf_openhouse.kind !=3 and gzf_openhouse.kind !=4 and gzf_openhouse.kind !=5 and gzf_openhouse.building_id!=2 and gzf_openhouse.building_id!=4 and gzf_openhouse.building_id!=5 and gzf_openhouse.building_id!=6 and gzf_openhouse.building_id!=7 and gzf_openhouse.building_id!=8 and gzf_openhouse.building_id!=12 and gzf_openhouse.building_id!=20");
+            lblStayCount.Text = DB.selectScalar("select count(*) from gzf_openhouse where (select count(*) from gzf_zd where gzf_zd.openhouse_id=gzf_openhouse.id and '" + date + "'>=gzf_zd.addtime)=0 and gzf_openhouse.kind !=3 and gzf_openhouse.building_id!=2 and gzf_openhouse.building_id!=4 and gzf_openhouse.building_id!=5 and gzf_openhouse.building_id!=6 and gzf_openhouse.building_id!=7 and gzf_openhouse.building_id!=8 and gzf_openhouse.building_id!=12 and gzf_openhouse.building_id!=20 and id not in (select id from gzf_openhouse where id not in (select openhouse_id from gzf_zd) and is_team in (select openhouse_id from gzf_zd))");
             lblPercent.Text = (Convert.ToDouble(lblStayCount.Text) / Convert.ToDouble(lblHouseCount.Text)).ToString("P");
             lblPeople.Text = DB.selectScalar("select count(*) from gzf_guest,gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and is_jiezhang=0 and gzf_guest.openhouse_id=gzf_openhouse.id" + " and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE is_jiezhang=0 group by house_id)");
             string lblPowerTotal = DB.selectScalar("select sum(price) from gzf_power where convert(varchar(10),addtime,120)='" + date + "' and status=1");
@@ -43,7 +43,9 @@ namespace gzf
             lblYaJing = lblYaJing == "" ? "0" : lblYaJing;
             lblPowerTotal = lblPowerTotal == "" ? "0" : lblPowerTotal;
 
-            lblKechuzu.Text = (Convert.ToInt32(lblHouseCount.Text) - Convert.ToInt32(lblStayCount.Text)).ToString();
+            string cond = " and gzf_openhouse.building_id!=2 and gzf_openhouse.building_id!=4 and gzf_openhouse.building_id!=5 and gzf_openhouse.building_id!=6 and gzf_openhouse.building_id!=7 and gzf_openhouse.building_id!=8 and gzf_openhouse.building_id!=12 and gzf_openhouse.building_id!=20";
+            lblBuke.Text = (Convert.ToInt32(DB.selectScalar("select count(*) from gzf_house where status=3")) + Convert.ToInt32(DB.selectScalar("select count(*) from gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and kind=3 and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE is_jiezhang=0" + cond + " group by house_id)"))).ToString();
+            lblKechuzu.Text = (Convert.ToInt32(lblHouseCount.Text) - Convert.ToInt32(lblStayCount.Text) - Convert.ToInt32(lblBuke.Text)).ToString();
             lblTotal.Text = (Convert.ToInt32(lblPowerTotal) + Convert.ToInt32(lblHousePrice) + Convert.ToInt32(lblYaJing)).ToString();
             model.OpenHouseKind kind = new gzf.model.OpenHouseKind(0);
             SC.Clear();
@@ -110,7 +112,6 @@ namespace gzf
             chart2.SeriesCollection.Add(SC2);
             chart1.Refresh();
             chart2.Refresh();
-
         }
 
         private void YingyeDayForm_Load(object sender, EventArgs e)

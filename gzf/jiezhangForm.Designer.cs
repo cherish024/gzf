@@ -470,21 +470,19 @@
             // 
             // txtFapiao2
             // 
-            this.txtFapiao2.Location = new System.Drawing.Point(614, 488);
+            this.txtFapiao2.Location = new System.Drawing.Point(587, 375);
             this.txtFapiao2.Name = "txtFapiao2";
-            this.txtFapiao2.Size = new System.Drawing.Size(43, 21);
+            this.txtFapiao2.Size = new System.Drawing.Size(77, 21);
             this.txtFapiao2.TabIndex = 56;
-            this.txtFapiao2.Visible = false;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(592, 460);
+            this.label28.Location = new System.Drawing.Point(524, 379);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(65, 12);
             this.label28.TabIndex = 55;
             this.label28.Text = "发票号码：";
-            this.label28.Visible = false;
             // 
             // dateTimePicker3
             // 

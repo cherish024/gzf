@@ -45,6 +45,8 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblBuke = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblKechuzu = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblPercent = new System.Windows.Forms.Label();
@@ -296,6 +298,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblBuke);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.lblKechuzu);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lblPercent);
@@ -314,6 +318,24 @@
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "房屋统计";
+            // 
+            // lblBuke
+            // 
+            this.lblBuke.AutoSize = true;
+            this.lblBuke.Location = new System.Drawing.Point(237, 36);
+            this.lblBuke.Name = "lblBuke";
+            this.lblBuke.Size = new System.Drawing.Size(11, 12);
+            this.lblBuke.TabIndex = 15;
+            this.lblBuke.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(153, 36);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 12);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "不可出租数量：";
             // 
             // lblKechuzu
             // 
@@ -336,7 +358,7 @@
             // lblPercent
             // 
             this.lblPercent.AutoSize = true;
-            this.lblPercent.Location = new System.Drawing.Point(381, 36);
+            this.lblPercent.Location = new System.Drawing.Point(467, 36);
             this.lblPercent.Name = "lblPercent";
             this.lblPercent.Size = new System.Drawing.Size(11, 12);
             this.lblPercent.TabIndex = 11;
@@ -345,7 +367,7 @@
             // lblStayCount
             // 
             this.lblStayCount.AutoSize = true;
-            this.lblStayCount.Location = new System.Drawing.Point(242, 36);
+            this.lblStayCount.Location = new System.Drawing.Point(353, 36);
             this.lblStayCount.Name = "lblStayCount";
             this.lblStayCount.Size = new System.Drawing.Size(11, 12);
             this.lblStayCount.TabIndex = 10;
@@ -354,7 +376,7 @@
             // lblZDCount
             // 
             this.lblZDCount.AutoSize = true;
-            this.lblZDCount.Location = new System.Drawing.Point(381, 79);
+            this.lblZDCount.Location = new System.Drawing.Point(351, 79);
             this.lblZDCount.Name = "lblZDCount";
             this.lblZDCount.Size = new System.Drawing.Size(11, 12);
             this.lblZDCount.TabIndex = 9;
@@ -372,7 +394,7 @@
             // lblOpenCount
             // 
             this.lblOpenCount.AutoSize = true;
-            this.lblOpenCount.Location = new System.Drawing.Point(240, 79);
+            this.lblOpenCount.Location = new System.Drawing.Point(214, 79);
             this.lblOpenCount.Name = "lblOpenCount";
             this.lblOpenCount.Size = new System.Drawing.Size(11, 12);
             this.lblOpenCount.TabIndex = 7;
@@ -381,7 +403,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 79);
+            this.label2.Location = new System.Drawing.Point(153, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 2;
@@ -390,7 +412,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(320, 36);
+            this.label6.Location = new System.Drawing.Point(406, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 6;
@@ -399,7 +421,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(320, 79);
+            this.label3.Location = new System.Drawing.Point(290, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 3;
@@ -408,7 +430,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 36);
+            this.label5.Location = new System.Drawing.Point(290, 36);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 5;
@@ -475,6 +497,8 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblBuke;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblKechuzu;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblPercent;

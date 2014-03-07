@@ -81,7 +81,7 @@
             // 
             this.groupBox1.Location = new System.Drawing.Point(19, 314);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(168, 346);
+            this.groupBox1.Size = new System.Drawing.Size(168, 366);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "房屋统计";
@@ -366,7 +366,7 @@
             // lbltime
             // 
             this.lbltime.AutoSize = true;
-            this.lbltime.Location = new System.Drawing.Point(18, 894);
+            this.lbltime.Location = new System.Drawing.Point(18, 914);
             this.lbltime.Name = "lbltime";
             this.lbltime.Size = new System.Drawing.Size(35, 12);
             this.lbltime.TabIndex = 17;
@@ -491,7 +491,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(19, 666);
+            this.groupBox3.Location = new System.Drawing.Point(19, 686);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(168, 223);
             this.groupBox3.TabIndex = 26;
@@ -503,7 +503,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1110, 911);
+            this.ClientSize = new System.Drawing.Size(1110, 939);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_power);
             this.Controls.Add(this.btn_pay);

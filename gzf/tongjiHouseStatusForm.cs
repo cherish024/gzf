@@ -34,6 +34,11 @@ namespace gzf
             {
                 comboBoxStatus.Items.Add(de);
             }
+            model.OpenHouseKind openhousekind = new gzf.model.OpenHouseKind(0);
+            foreach (DictionaryEntry de in openhousekind.statusTable)
+            {
+                comboBoxStatus.Items.Add(de);
+            }
             comboBoxStatus.ValueMember = "Key";
             comboBoxStatus.DisplayMember = "Value";
             DataTable dt = DB.select("select * from gzf_building");
@@ -47,7 +52,7 @@ namespace gzf
             comboBoxBuilding.ValueMember = "Key";
             comboBoxBuilding.DisplayMember = "Value";
             comboBoxBuilding.SelectedIndex = 0;
-            comboBoxStatus.SelectedIndex = 4;
+            comboBoxStatus.SelectedIndex = 5;
             btn_search_Click(sender, e);
         }
 
@@ -60,27 +65,51 @@ namespace gzf
         {
             SC.Clear();
             Series s = new Series();
-            string buildingQuery = "";
+            string buildingQuery = " and building_id!=2 and building_id!=4 and building_id!=5 and building_id!=6 and building_id!=7 and building_id!=8 and building_id!=12 and building_id!=20";
             if (comboBoxBuilding.SelectedIndex != 0)
             { 
                 buildingQuery = " and building_id=" + ((DictionaryEntry)comboBoxBuilding.SelectedItem).Key;
             }
-            dataGridView1.DataSource = DB.select("select * from gzf_house,gzf_building where status=" + ((DictionaryEntry)comboBoxStatus.SelectedItem).Key + " and gzf_house.building_id=gzf_building.id" + buildingQuery);
+            if (comboBoxStatus.SelectedIndex < 6)
+            {
+                dataGridView1.DataSource = DB.select("select * from gzf_house,gzf_building where status=" + ((DictionaryEntry)comboBoxStatus.SelectedItem).Key + " and gzf_house.building_id=gzf_building.id" + buildingQuery);
+            }
+            else
+            {
+                if(((DictionaryEntry)comboBoxStatus.SelectedItem).Key.ToString() != "3")
+                {
+                    buildingQuery = "";
+                    if (comboBoxBuilding.SelectedIndex != 0)
+                    {
+                        buildingQuery = " and building_id=" + ((DictionaryEntry)comboBoxBuilding.SelectedItem).Key;
+                    }
+                }
+                dataGridView1.DataSource = DB.select("select * from gzf_house,gzf_openhouse,gzf_building where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and kind=" + ((DictionaryEntry)comboBoxStatus.SelectedItem).Key + " and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE is_jiezhang=0" + buildingQuery + " and gzf_house.building_id=gzf_building.id group by house_id)");
+            }
             lblNum.Text = dataGridView1.Rows.Count.ToString();
-            if (comboBoxStatus.SelectedIndex == 4)
+            if (comboBoxStatus.SelectedIndex > 4 )
             {
                 //加载统计信息
-                model.OpenHouseKind kind = new gzf.model.OpenHouseKind(1);
+                model.OpenHouseKind kind = new gzf.model.OpenHouseKind(0);
                 int x = 0;
                 int y = 20;
                 panelKind.Controls.Clear();
-                string cond = "";
-                if (comboBoxBuilding.SelectedIndex != 0)
-                {
-                    cond = "and gzf_openhouse.building_id=" + ((DictionaryEntry)comboBoxBuilding.SelectedItem).Key;
-                }
+
                 foreach (DictionaryEntry de in kind.statusTable)
                 {
+                    string cond = "";
+                    if (comboBoxBuilding.SelectedIndex != 0)
+                    {
+                        cond = " and gzf_openhouse.building_id=" + ((DictionaryEntry)comboBoxBuilding.SelectedItem).Key;
+                    }
+                    if (de.Key.ToString() == "3")
+                    {
+                        cond = " and gzf_openhouse.building_id!=2 and gzf_openhouse.building_id!=4 and gzf_openhouse.building_id!=5 and gzf_openhouse.building_id!=6 and gzf_openhouse.building_id!=7 and gzf_openhouse.building_id!=8 and gzf_openhouse.building_id!=12 and gzf_openhouse.building_id!=20";
+                        if (comboBoxBuilding.SelectedIndex != 0)
+                        {
+                            cond = " and gzf_openhouse.building_id=" + ((DictionaryEntry)comboBoxBuilding.SelectedItem).Key;
+                        }
+                    }
                     //string count = DB.selectScalar("select count(*) from gzf_openhouse where is_jiezhang=0 and kind=" + de.Key + cond);
                     string count = DB.selectScalar("select count(*) from gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and kind=" + de.Key + " and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE is_jiezhang=0" + cond + " group by house_id)");
                     System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();

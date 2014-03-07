@@ -81,6 +81,13 @@ namespace gzf.model
             set { _leftpos = value; }
         }
 
+        private int _near_kitchen;
+
+        public int Near_kitchen
+        {
+            get { return _near_kitchen; }
+            set { _near_kitchen = value; }
+        }
 
         //public HouseStatus houseStatus = new HouseStatus(status);
     }

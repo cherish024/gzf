@@ -257,7 +257,7 @@ namespace gzf
             groupBox1.Controls.Add(lbl1);
             y += lbl1.Size.Height + 1;
 
-            count1 = DB.selectScalar("select count(*) from gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE gzf_openhouse.building_id=" + tab.Tag + " and is_jiezhang=0 group by house_id)");
+            count1 = DB.selectScalar("select count(*) from gzf_openhouse,gzf_house where gzf_openhouse.house_id=gzf_house.id and gzf_house.status=0 and gzf_openhouse.id in (select Max(id) from gzf_openhouse WHERE gzf_openhouse.building_id=" + tab.Tag + " and is_jiezhang=0 and gzf_openhouse.kind!=3 group by house_id)");
             lbl1 = new Label();
             lbl1.Width = 140;
             lbl1.Text = "该楼已入住房屋" + "：" + count1;

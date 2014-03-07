@@ -13,11 +13,12 @@ namespace gzf.model
         
         public HouseStatus(int status)
         {
-            _ht.Add(0, "占用房");
+            _ht.Add(0, "全部用房");
             _ht.Add(1, "空闲房");
             _ht.Add(2, "清洁房");
             _ht.Add(3, "厨房");
             _ht.Add(4, "维修房");
+            _ht.Add(5, "保留房");
             //_ht.Add(5, "办公房");
             //_ht.Add(6, "门面房");
             //_ht.Add(7, "值班室");

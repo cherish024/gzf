@@ -27,12 +27,13 @@ namespace gzf
             h.Sortnum = Convert.ToInt32(dt.Rows[0]["sortnum"]);
             h.Guestnum = Convert.ToInt32(dt.Rows[0]["guestnum"]);
             h.Leftpos = Convert.ToInt32(dt.Rows[0]["leftpos"]);
+            h.Near_kitchen = Convert.ToInt32(dt.Rows[0]["near_kitchen"]);
             this.house = h;
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            string cmd = "update gzf_house set building_id=" + comboBoxBuilding.SelectedValue + ", floor=" + (comboBoxFloor.SelectedIndex + 1).ToString() + ", position=" + comboBoxPosition.SelectedIndex + ", price=" + txtPrice.Text + ", sn='" + txtSn.Text + "', sortnum=" + numSort.Value + ", guestnum=" + comboBox1.SelectedIndex + ", leftpos=" + leftpos.Value + " where id=" + house.id;
+            string cmd = "update gzf_house set building_id=" + comboBoxBuilding.SelectedValue + ", floor=" + (comboBoxFloor.SelectedIndex + 1).ToString() + ", position=" + comboBoxPosition.SelectedIndex + ", price=" + txtPrice.Text + ", sn='" + txtSn.Text + "', sortnum=" + numSort.Value + ", guestnum=" + comboBox1.SelectedIndex + ", leftpos=" + leftpos.Value + ", near_kitchen=" + comboBoxKitchen.SelectedIndex + " where id=" + house.id;
             int dbcount = DB.exec_NonQuery(cmd);
             if (dbcount > 0)
             {
@@ -66,6 +67,7 @@ namespace gzf
             comboBoxPosition.SelectedIndex = house.Position;
             comboBox1.SelectedIndex = house.Guestnum;
             leftpos.Value = house.Leftpos;
+            comboBoxKitchen.SelectedIndex = house.Near_kitchen;
         }
     }
 }

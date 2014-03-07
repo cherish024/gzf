@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tongjiMonth));
             dotnetCHARTING.WinForms.Label label9 = new dotnetCHARTING.WinForms.Label();
-            dotnetCHARTING.WinForms.Label label10 = new dotnetCHARTING.WinForms.Label();
+            dotnetCHARTING.WinForms.Label label13 = new dotnetCHARTING.WinForms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxMonth = new System.Windows.Forms.ComboBox();
@@ -47,6 +47,8 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblBuke = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblKechuzu = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblPercent = new System.Windows.Forms.Label();
@@ -233,7 +235,7 @@
             this.chart1.DataGrid = null;
             this.chart1.DefaultElement.LegendEntry.DividerLine.Color = System.Drawing.Color.Empty;
             this.chart1.DefaultElement.ShowValue = true;
-            this.chart1.LabelChart = label10;
+            this.chart1.LabelChart = label13;
             resources.ApplyResources(this.chart1, "chart1");
             this.chart1.Name = "chart1";
             this.chart1.NoDataLabel.Text = "No Data";
@@ -280,6 +282,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblBuke);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.lblKechuzu);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lblPercent);
@@ -295,6 +299,16 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // lblBuke
+            // 
+            resources.ApplyResources(this.lblBuke, "lblBuke");
+            this.lblBuke.Name = "lblBuke";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
             // lblKechuzu
             // 
@@ -408,6 +422,8 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblBuke;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblKechuzu;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblPercent;

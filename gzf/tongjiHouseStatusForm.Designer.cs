@@ -149,7 +149,7 @@
             // 
             this.panelKind.Location = new System.Drawing.Point(39, 80);
             this.panelKind.Name = "panelKind";
-            this.panelKind.Size = new System.Drawing.Size(520, 45);
+            this.panelKind.Size = new System.Drawing.Size(522, 45);
             this.panelKind.TabIndex = 25;
             this.panelKind.Visible = false;
             // 

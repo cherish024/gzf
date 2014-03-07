@@ -47,6 +47,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.leftpos = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
+            this.comboBoxKitchen = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftpos)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +125,7 @@
             // 
             // btn_close
             // 
-            this.btn_close.Location = new System.Drawing.Point(272, 268);
+            this.btn_close.Location = new System.Drawing.Point(272, 332);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(75, 32);
             this.btn_close.TabIndex = 11;
@@ -133,7 +135,7 @@
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(134, 268);
+            this.btn_edit.Location = new System.Drawing.Point(134, 332);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(75, 32);
             this.btn_edit.TabIndex = 10;
@@ -225,11 +227,34 @@
             this.label8.TabIndex = 28;
             this.label8.Text = "左边空几格：";
             // 
+            // comboBoxKitchen
+            // 
+            this.comboBoxKitchen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxKitchen.FormattingEnabled = true;
+            this.comboBoxKitchen.Items.AddRange(new object[] {
+            "否",
+            "是"});
+            this.comboBoxKitchen.Location = new System.Drawing.Point(108, 258);
+            this.comboBoxKitchen.Name = "comboBoxKitchen";
+            this.comboBoxKitchen.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxKitchen.TabIndex = 31;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(38, 261);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "靠近厨房：";
+            // 
             // editHouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 334);
+            this.ClientSize = new System.Drawing.Size(483, 413);
+            this.Controls.Add(this.comboBoxKitchen);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.leftpos);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox1);
@@ -283,5 +308,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.NumericUpDown leftpos;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBoxKitchen;
+        private System.Windows.Forms.Label label9;
     }
 }
