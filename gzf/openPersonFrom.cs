@@ -146,7 +146,7 @@ namespace gzf
             //{
             string path = Path.GetTempFileName();
             FileStream fs;
-            if (result == 0)
+            if (result == 100)
             {
                 Bitmap bitmap1 = new Bitmap(pictureBox1.Image);
                 bitmap1.Save(path);

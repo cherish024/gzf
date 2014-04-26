@@ -39,7 +39,7 @@ namespace gzf
             {
                 buildingQuery = " and gzf_house.building_id=" + ((DictionaryEntry)comboBoxBuilding.SelectedItem).Key;
             }
-            string cmd = "select house_id,openhouse_id from gzf_payment,gzf_house where openhouse_id in (select max(id) from gzf_openhouse where is_jiezhang=0 group by house_id) AND DateDiff (Day,getdate(),end_time) <= " + (comboBoxDay.SelectedIndex + 1) + " and gzf_payment.id in (select max(id) from gzf_payment group by house_id) and gzf_payment.house_id=gzf_house.id" + buildingQuery + " order by gzf_house.building_id,gzf_house.sn";
+            string cmd = "select house_id,openhouse_id from gzf_payment,gzf_house where openhouse_id in (select max(id) from gzf_openhouse where is_jiezhang=0 group by house_id) AND DateDiff (Day,getdate(),end_time) <= " + (comboBoxDay.SelectedIndex + 1) + " and gzf_payment.id in (select max(id) from gzf_payment group by house_id) and gzf_payment.house_id=gzf_house.id" + buildingQuery + " and gzf_house.status != 1 order by gzf_house.building_id,gzf_house.sn";
             dataGridView1.DataSource = DB.select(cmd);
             
         }

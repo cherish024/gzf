@@ -53,15 +53,14 @@ namespace gzf
             FileStream fs;
             if (result == 100)
             {
-                pictureBox1.Image.Save(path);
+                Bitmap bitmap1 = new Bitmap(pictureBox1.Image);
+                bitmap1.Save(path);
                 fs = new FileStream(path, FileMode.Open, FileAccess.Read);
             }
             else
             {
                 fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
             }
-            //pictureBox1.Image.Save(path);
-            //FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
             bytes = new Byte[fs.Length];
             fs.Read(bytes, 0, bytes.Length);
             fs.Close();
